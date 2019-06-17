@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Operation Spark
+  - __Scrum Master__: Omar Rashid
+  - __Development Team Members__: Omar Rashid, Christopher Corlehy, Stephen Guillory, Khari Lane
 
 ## Table of Contents
 
@@ -44,7 +44,7 @@ bower install
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [https://github.com/4th-d/NightLife/projects/1]
 
 
 ## Contributing
