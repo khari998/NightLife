@@ -9,6 +9,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { MapComponent } from "./components/map/map.component";
 import { RecComponent } from "./components/rec/rec.component";
 import { EmerComponent } from "./components/emer/emer.component";
+import { StartupComponent } from "./components/startup/startup.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -28,6 +29,7 @@ import { EmerComponent } from "./components/emer/emer.component";
         AppComponent,
         ItemsComponent,
         ItemDetailComponent,
+        StartupComponent,
         HomeComponent,
         MapComponent,
         RecComponent,
