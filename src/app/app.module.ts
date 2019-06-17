@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { ItemsComponent } from "./item/items.component";
 import { ItemDetailComponent } from "./item/item-detail.component";
 import { HomeComponent } from "./components/home/home.component";
+import { MapComponent } from "./components/map/map.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -26,6 +27,7 @@ import { HomeComponent } from "./components/home/home.component";
         ItemsComponent,
         ItemDetailComponent,
         HomeComponent,
+        MapComponent,
     ],
     providers: [],
     schemas: [
