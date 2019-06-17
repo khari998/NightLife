@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MapComponent } from './components/map/map.component';
 import { RecComponent } from "./components/rec/rec.component";
 import { EmerComponent } from "./components/emer/emer.component";
+import { StartupComponent } from "./components/startup/startup.component";
 // import { ItemsComponent } from "./item/items.component";
 // import { ItemDetailComponent } from "./item/item-detail.component";
 
@@ -13,7 +14,8 @@ const routes: Routes = [
     // { path: "", redirectTo: "/items", pathMatch: "full" },
     // { path: "items", component: ItemsComponent },
     // { path: "item/:id", component: ItemDetailComponent }
-    { path: '', component: HomeComponent },
+    { path: '', component: StartupComponent},
+    { path: 'home', component: HomeComponent },
     { path: 'map', component: MapComponent },
     { path: 'rec', component: RecComponent },
     {  path: 'emer', component: EmerComponent},
