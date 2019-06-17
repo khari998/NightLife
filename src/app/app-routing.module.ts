@@ -4,6 +4,8 @@ import { Routes } from "@angular/router";
 
 import { HomeComponent } from './components/home/home.component';
 import { MapComponent } from './components/map/map.component';
+import { RecComponent } from "./components/rec/rec.component";
+import { EmerComponent } from "./components/emer/emer.component";
 // import { ItemsComponent } from "./item/items.component";
 // import { ItemDetailComponent } from "./item/item-detail.component";
 
@@ -13,6 +15,8 @@ const routes: Routes = [
     // { path: "item/:id", component: ItemDetailComponent }
     { path: '', component: HomeComponent },
     { path: 'map', component: MapComponent },
+    { path: 'rec', component: RecComponent },
+    {  path: 'emer', component: EmerComponent},
 ];
 
 @NgModule({
