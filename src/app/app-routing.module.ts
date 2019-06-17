@@ -7,6 +7,7 @@ import { MapComponent } from './components/map/map.component';
 import { RecComponent } from "./components/rec/rec.component";
 import { EmerComponent } from "./components/emer/emer.component";
 import { StartupComponent } from "./components/startup/startup.component";
+import { ReviewComponent } from "./components/review/review.component";
 // import { ItemsComponent } from "./item/items.component";
 // import { ItemDetailComponent } from "./item/item-detail.component";
 
@@ -18,7 +19,8 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'map', component: MapComponent },
     { path: 'rec', component: RecComponent },
-    {  path: 'emer', component: EmerComponent},
+    { path: 'emer', component: EmerComponent },
+    { path: 'review', component: ReviewComponent},
 ];
 
 @NgModule({
