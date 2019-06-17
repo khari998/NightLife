@@ -17,28 +17,25 @@ Once the project moves into development, the press release can be used as a touc
  -->
 
 ## Heading
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > NiteLyfe (working title)
 
 ## Sub-Heading
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > An app for people looking for hot nightlife spots around their current location.
 
 ## Summary
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Our product has a heat map with live comment streams for bars and clubs. We also give a recommendation based on past visits and reviews. Lastly, users can add emergency guardians and share their location with them with one click.
 
 ## Problem
-  > Describe the problem your product solves.
+  > Our product helps users who want an active night life find locations that are currently active. Users will no longer have to hope the establishment they choose to visit for a night will have  fun and active environment. Instead, users can see population density and real time comments for locations they wish to go to.
 
 ## Solution
-  > Describe how your product elegantly solves the problem.
+  > Our product's heat map shows current users who are at a specific location. Users can add a comment for a location they are currently at, and those comments will be visible for a short time to all users who are logged in. Users will also get recommendations for places to go based on past user inputs.
 
 ## Quote from You
-  > A quote from a spokesperson in your company.
+  > Our product takes the guessing out of a night out.
 
 ## How to Get Started
-  > Describe how easy it is to get started.
+  > Download the app, sign in with google, and see hot spots in your area.
 
 ## Customer Quote
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-
-## Closing and Call to Action
-  > Wrap it up and give pointers where the reader should go next.
+  > "NyteLyfe changes the game in going out. I want to go to active places with good music, and the live comments and heat map give me this option."

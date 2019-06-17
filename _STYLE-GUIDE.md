@@ -129,7 +129,7 @@ When writing any block of code that is logically subordinate to the line immedia
     }
     ```
 
-* Don't use function statements for the entire first half of the course. They introduce a slew of subtle new rules to how the language behaves, and without a clear benefit. Once you and all your peers are expert level in the second half, you can start to use the more (needlessly) complicated option if you like.
+* Don't use function statements. They introduce a slew of subtle new rules to how the language behaves, and without a clear benefit. If you and all your peers are expert level, you can use the more (needlessly) complicated option if you like.
 
     ```javascript
     // good:
@@ -240,7 +240,7 @@ When writing any block of code that is logically subordinate to the line immedia
 ### Working with files
 
 * Do not end a file with any character other than a newline.
-* Don't use the -a or -m flags for `git commit` for the first half of the class, since they conceal what is actually happening (and do slightly different things than most people expect).
+* Don't use the -a or -m flags for `git commit`, since they conceal what is actually happening (and do slightly different things than most people expect).
 
     ```shell
     # good:
@@ -327,7 +327,7 @@ When writing any block of code that is logically subordinate to the line immedia
     var animals = [
       'ape',
       'bat',
-      'cat'
+      'cat',
     ];
 
     // bad:
