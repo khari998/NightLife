@@ -2,38 +2,38 @@
 
 ## General Workflow
 
-1. Fork the repo
-1. Cut a namespaced feature branch from master
+1. Clone the repo
+2. Cut a namespaced feature branch from master
   - bug/...
   - feat/...
   - test/...
   - doc/...
   - refactor/...
-1. Make commits to your feature branch. Prefix each commit like so:
+3. Make commits to your feature branch. Prefix each commit like so:
   - (feat) Add a new feature
   - (fix) Fix inconsistent tests [Fixes #0]
   - (refactor) ...
   - (cleanup) ...
   - (test) ...
   - (doc) ...
-1. When you've finished with your fix or feature, Rebase upstream changes into your branch. submit a [pull request][]
+4. When you've finished with your fix or feature, push your new branch to github. submit a pull request
    directly to master. Include a description of your changes.
-1. Your pull request will be reviewed by another maintainer. The point of code
+5. Your pull request will be reviewed by another maintainer. The point of code
    reviews is to help keep the codebase clean and of high quality and, equally
    as important, to help you grow as a programmer. If your code reviewer
    requests you make a change you don't understand, ask them why.
-1. Fix any issues raised by your code reviewer, and push your fixes as a single
+6. Fix any issues raised by your code reviewer, and push your fixes as a single
    new commit.
-1. Once the pull request has been reviewed, it will be merged by another member of the team. Do not merge your own commits.
+7. Once the pull request has been reviewed, it will be merged by another member of the team. Do not merge your own commits.
 
 ## Detailed Workflow
 
-### Fork the repo
+### Clone the repo
 
-Use github’s interface to make a fork of the repo, then add that repo as an upstream remote:
+Use github’s interface to clone the repo, then add that repo as an origin remote:
 
 ```
-git remote add upstream https://github.com/<NAME_OF_ORG>/<NAME_OF_REPO>.git
+git remote add origin https://github.com/<NAME_OF_ORG>/<NAME_OF_REPO>.git
 ```
 
 ### Cut a namespaced feature branch from master
@@ -79,16 +79,14 @@ changes.
   be a blank line and then a more detailed description of the commit. This can be
   as detailed as you want, so dig into details here and keep the first line short.
 
-### Rebase upstream changes into your branch
+### Rebase upstream changes into your branch and push to github
 
 Once you are done making changes, you can begin the process of getting
 your code merged into the main repo. Step 1 is to rebase upstream
 changes to the master branch into yours by running this command
 from your branch:
 
-```bash
-git pull --rebase upstream master
-```
+git pull --rebase origin master
 
 This will start the rebase process. You must commit all of your changes
 before doing this. If there are no conflicts, this should just roll all
@@ -120,9 +118,11 @@ make sure they work also.
 If rebasing broke anything, fix it, then repeat the above process until
 you get here again and nothing is broken and all the tests pass.
 
+Push your branch to github.
+
 ### Make a pull request
 
-Make a clear pull request from your fork and branch to the upstream master
+Make a clear pull request from branch to the master
 branch, detailing exactly what changes you made and what feature this
 should add. The clearer your pull request is the faster you can get
 your changes incorporated into this repo.
@@ -141,13 +141,12 @@ Thanks for contributing!
 ### Guidelines
 
 1. Uphold the current code standard:
-    - Keep your code [DRY][].
-    - Apply the [boy scout rule][].
-    - Follow [STYLE-GUIDE.md](STYLE-GUIDE.md)
-1. Run the [tests][] before submitting a pull request.
-1. Tests are very, very important. Submit tests if your pull request contains
+    - Keep your code DRY.
+    - Follow STYLE-GUIDE.md
+2. Run the tests before submitting a pull request.
+3. Tests are very, very important. Submit tests if your pull request contains
    new, testable behavior.
-1. Your pull request is comprised of a single ([squashed][]) commit.
+4. Your pull request is comprised of a single squashed commit.
 
 ## Checklist:
 
