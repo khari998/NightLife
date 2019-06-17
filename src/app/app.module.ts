@@ -10,6 +10,7 @@ import { MapComponent } from "./components/map/map.component";
 import { RecComponent } from "./components/rec/rec.component";
 import { EmerComponent } from "./components/emer/emer.component";
 import { StartupComponent } from "./components/startup/startup.component";
+import { ReviewComponent } from "./components/review/review.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -34,6 +35,7 @@ import { StartupComponent } from "./components/startup/startup.component";
         MapComponent,
         RecComponent,
         EmerComponent,
+        ReviewComponent,
     ],
     providers: [],
     schemas: [
