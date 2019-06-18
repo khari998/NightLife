@@ -11,7 +11,15 @@ import { RecComponent } from "./components/rec/rec.component";
 import { EmerComponent } from "./components/emer/emer.component";
 import { StartupComponent } from "./components/startup/startup.component";
 import { ReviewComponent } from "./components/review/review.component";
+import * as platform from "platform";
+declare var GMSServices: any;
 
+import { googleAPI } from '../../config'
+
+
+if (platform.isIOS) {
+    GMSServices.provideAPIKey(googleAPI);
+}
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
