@@ -14,13 +14,13 @@ import { ReviewComponent } from "./components/review/review.component";
 import * as platform from "tns-core-modules/platform";
 declare var GMSServices: any;
 import { googleAPI } from '../../config'
+import * as GooglePlaces from 'nativescript-plugin-google-places';
 
 
 
 if (platform.isIOS) {
     GMSServices.provideAPIKey(googleAPI);
 }
-
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -56,4 +56,8 @@ if (platform.isIOS) {
 /*
 Pass your application module to the bootstrapModule function located in main.ts to start your app
 */
-export class AppModule { }
+export class AppModule {
+    constructor() {
+        GooglePlaces.init();
+    }
+}
