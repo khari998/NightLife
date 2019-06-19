@@ -1,4 +1,12 @@
-<GridLayout>
+<!-- <GridLayout>
     <MapView (mapReady)="onMapReady($event)" [latitude]="lat" [longitude]="long">
     </MapView>
-</GridLayout>
+</GridLayout> -->
+
+
+<ContentView height="100%" width="100%">
+    <Mapbox [accessToken]="your_token" mapStyle="traffic_day" latitude="50.467735" longitude="13.427718"
+        hideCompass="true" zoomLevel="18" showUserLocation="false" disableZoom="false" disableRotation="false"
+        disableScroll="false" disableTilt="false" (mapReady)="onMapReady($event)">
+    </Mapbox>
+</ContentView>

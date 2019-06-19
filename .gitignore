@@ -35,7 +35,4 @@ typings/
 # for IOS google maps API key
 config.ts
 
-# for Andriod google maps API key
-App_Resources/Android/src/main/res/values/nativescript_google_maps_api.xml
-google-places.config.json
 

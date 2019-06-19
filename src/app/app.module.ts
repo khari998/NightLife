@@ -11,16 +11,16 @@ import { RecComponent } from "./components/rec/rec.component";
 import { EmerComponent } from "./components/emer/emer.component";
 import { StartupComponent } from "./components/startup/startup.component";
 import { ReviewComponent } from "./components/review/review.component";
-import * as platform from "tns-core-modules/platform";
-declare var GMSServices: any;
+// import * as platform from "tns-core-modules/platform";
+// declare var GMSServices: any;
 import { googleAPI } from '../../config'
-import * as GooglePlaces from 'nativescript-plugin-google-places';
+// import * as GooglePlaces from 'nativescript-plugin-google-places';
 
 
 
-if (platform.isIOS) {
-    GMSServices.provideAPIKey(googleAPI);
-}
+// if (platform.isIOS) {
+//     GMSServices.provideAPIKey(googleAPI);
+// }
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -58,6 +58,6 @@ Pass your application module to the bootstrapModule function located in main.ts 
 */
 export class AppModule {
     constructor() {
-        GooglePlaces.init();
+       // GooglePlaces.init();
     }
 }
