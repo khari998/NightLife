@@ -18,12 +18,12 @@ registerElement("Mapbox", () => require("nativescript-mapbox").MapboxView);
 export class MapComponent implements OnInit {
 
     your_token = mapboxAPI;
-//     lat = 29.9511
-//     long = 90.0715
+    // lat;
+    // long;
 
 // @ViewChild("MapView", null) mapView: ElementRef;
 
- onMapReady = (event) => {
+ onMapReady = (args) => {
     // const mapView = event.object;
     // //mapView.settings.compassEnabled = true;
     // mapView.settings.myLocationButtonEnabled = true;
@@ -32,9 +32,18 @@ export class MapComponent implements OnInit {
     //  marker.position = Position.positionFromLatLng(this.lat, this.long);
     //  mapView.addMarker(marker);
 
-    console.log(event);
+    console.log(args.map);
 
-
+    args.map.addMarkers([{
+        lat: 29.95465,
+        lng: -90.07507,
+        title: "New Orleans",
+        subtitle: "Ready for a night out!?",
+        selected: true,
+        onCalloutTap: () => {
+            console.log('tapped');
+        }
+    }]);
 };
   constructor() {
 
@@ -45,7 +54,6 @@ export class MapComponent implements OnInit {
     //     .then(() => {
     //        geolocation.getCurrentLocation({ desiredAccuracy: Accuracy.high, maximumAge: 5000, timeout: 20000 })
     //        .then((location) => {
-    //            console.log(location);
     //            this.lat = location.latitude;
     //            this.long = location.longitude;
     //        })

@@ -3,10 +3,15 @@
     </MapView>
 </GridLayout> -->
 
-
+<StackLayout>
+<Label text="Fuck this Map"></Label>
 <ContentView height="100%" width="100%">
-    <Mapbox [accessToken]="your_token" mapStyle="traffic_day" latitude="50.467735" longitude="13.427718"
-        hideCompass="true" zoomLevel="18" showUserLocation="false" disableZoom="false" disableRotation="false"
-        disableScroll="false" disableTilt="false" (mapReady)="onMapReady($event)">
+    <Mapbox [accessToken]="your_token" mapStyle="traffic_day" latitude="29.95465" longitude="-90.07507"
+        hideCompass="true" zoomLevel="16" showUserLocation="false" disableZoom="false" disableRotation="false"
+        disableScroll="false" disableTilt="false" (mapReady)="onMapReady($event)"
+        showUserLocation="true" hideCompass='true'
+        >
     </Mapbox>
 </ContentView>
+
+</StackLayout>
