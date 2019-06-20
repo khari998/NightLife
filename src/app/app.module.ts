@@ -12,6 +12,7 @@ import { EmerComponent } from "./components/emer/emer.component";
 import { StartupComponent } from "./components/startup/startup.component";
 import { ReviewComponent } from "./components/review/review.component";
 import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
+import { VisitsComponent } from "./components/review/recentVisits/reviews.component";
 
 
 
@@ -41,6 +42,7 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         EmerComponent,
         ReviewComponent,
         GuardiansComponent,
+        VisitsComponent
     ],
     providers: [],
     schemas: [
