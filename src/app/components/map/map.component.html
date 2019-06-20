@@ -5,13 +5,13 @@
 
 <ActionBar title="Fuck this Map"></ActionBar>
 <StackLayout>
-<ns-place-item
+<!-- <ns-place-item
 *ngFor='let place of nolaData'
 [place]='place'
-></ns-place-item>
+></ns-place-item> -->
 <ContentView height="100%" width="100%">
     <Mapbox [accessToken]="your_token" mapStyle="traffic_day" latitude="29.95465" longitude="-90.07507"
-        hideCompass="true" zoomLevel="16" showUserLocation="false" disableZoom="false" disableRotation="false"
+        hideCompass="true" zoomLevel="13" showUserLocation="false" disableZoom="false" disableRotation="false"
         disableScroll="false" disableTilt="false" (mapReady)="onMapReady($event)"
         showUserLocation="true" hideCompass='true'
         >

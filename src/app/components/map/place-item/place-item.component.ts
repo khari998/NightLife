@@ -13,7 +13,7 @@ export class PlaceItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      console.log(this.place.name);
-  }
+
+    }
 
 }

@@ -16,12 +16,9 @@ import { PlaceItemComponent } from "./components/map/place-item/place-item.compo
 // declare var GMSServices: any;
 import { googleAPI } from '../../config'
 // import * as GooglePlaces from 'nativescript-plugin-google-places';
+import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
+import { VisitsComponent } from "./components/review/recentVisits/reviews.component";
 
-
-
-// if (platform.isIOS) {
-//     GMSServices.provideAPIKey(googleAPI);
-// }
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -50,6 +47,8 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         EmerComponent,
         ReviewComponent,
         PlaceItemComponent,
+        GuardiansComponent,
+        VisitsComponent
     ],
     providers: [],
     schemas: [

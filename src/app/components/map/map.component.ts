@@ -32,9 +32,6 @@ export class MapComponent implements OnInit {
         title: "Your Location",
         subtitle: "New Orleans",
         selected: true,
-        onCalloutTap: () => {
-            console.log('tapped');
-        }
     }
 ]);
 
