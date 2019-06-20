@@ -11,16 +11,8 @@ import { RecComponent } from "./components/rec/rec.component";
 import { EmerComponent } from "./components/emer/emer.component";
 import { StartupComponent } from "./components/startup/startup.component";
 import { ReviewComponent } from "./components/review/review.component";
-// import * as platform from "tns-core-modules/platform";
-// declare var GMSServices: any;
-import { googleAPI } from '../../config'
-// import * as GooglePlaces from 'nativescript-plugin-google-places';
+import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
 
-
-
-// if (platform.isIOS) {
-//     GMSServices.provideAPIKey(googleAPI);
-// }
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -47,6 +39,7 @@ import { googleAPI } from '../../config'
         RecComponent,
         EmerComponent,
         ReviewComponent,
+        GuardiansComponent,
     ],
     providers: [],
     schemas: [
