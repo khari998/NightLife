@@ -13,7 +13,7 @@ export class FourSquareService {
     v = '20190619';
     categoryId = '4d4b7105d754a06376d81259';
     limit = '5';
-    llAcc = '100';
+    radius = '100';
 
     url: string = 'https://api.foursquare.com/v2/venues/search';
     // urlParams: string = `?client_id=${clientFS}&client_secret=${secretFS}&ll=${this.lat},${this.long}&v=${this.v}&categoryId=${this.categoryId}&llAcc=${this.llAcc}`;
@@ -32,7 +32,7 @@ export class FourSquareService {
               v: this.v,
               categoryId: this.categoryId,
               limit: this.limit,
-              llAcc: this.llAcc,
+              raduis: this.radius,
           }
       })
 
