@@ -21,6 +21,7 @@ registerElement("Mapbox", () => require("nativescript-mapbox").MapboxView);
 export class MapComponent implements OnInit {
 
     your_token = mapboxAPI;
+    nolaData;
 
  onMapReady = (args) => {
 
@@ -28,15 +29,23 @@ export class MapComponent implements OnInit {
     args.map.addMarkers([{
         lat: 29.95465,
         lng: -90.07507,
-        title: "New Orleans",
-        subtitle: "Ready for a night out!?",
+        title: "Your Location",
+        subtitle: "New Orleans",
         selected: true,
-        onCalloutTap: () => {
-            console.log('tapped');
-        }
-    }]);
+    }
+]);
 
     args.map.setMapStyle("dark");
+
+    // set markers for each item in nolaData
+    this.nolaData.forEach(place => {
+        args.map.addMarkers([{
+            lat: place.location.lat,
+            lng: place.location.lng,
+            title: place.name,
+            subtitle: place.categories[0].name,
+        }])
+    })
 };
 
     constructor(private FourSquareService: FourSquareService) {
@@ -55,7 +64,7 @@ export class MapComponent implements OnInit {
 
     this.FourSquareService.getLocationData()
         .subscribe((data) => {
-            console.log(data);
+            this.nolaData = data.response.venues;
         },
         (error) => {
             console.log(error);
