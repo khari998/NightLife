@@ -11,14 +11,16 @@ import { RecComponent } from "./components/rec/rec.component";
 import { EmerComponent } from "./components/emer/emer.component";
 import { StartupComponent } from "./components/startup/startup.component";
 import { ReviewComponent } from "./components/review/review.component";
+import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
+import { VisitsComponent } from "./components/review/recentVisits/visits.component";
+import { VisitDetailComponent } from "./components/review/recentVisits/visit-detail.component";
 import { PlaceItemComponent } from "./components/map/place-item/place-item.component";
+import { GuardianDetailComponent } from "./components/emer/guardians/guardian-detail.component";
 // import * as platform from "tns-core-modules/platform";
 // declare var GMSServices: any;
 // import { googleAPI } from '../../config'
 // import * as GooglePlaces from 'nativescript-plugin-google-places';
 // import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
-import { VisitsComponent } from "./components/review/recentVisits/reviews.component";
-import { GuardiansComponent } from './components/emer/guardians/guardians.component';
 
 
 
@@ -27,7 +29,6 @@ import { GuardiansComponent } from './components/emer/guardians/guardians.compon
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
-import { GuardianDetailComponent } from "./components/emer/guardians/guardian-detail.component";
 
 @NgModule({
     bootstrap: [
@@ -51,6 +52,7 @@ import { GuardianDetailComponent } from "./components/emer/guardians/guardian-de
         PlaceItemComponent,
         GuardiansComponent,
         VisitsComponent,
+        VisitDetailComponent,
         GuardianDetailComponent
     ],
     providers: [],

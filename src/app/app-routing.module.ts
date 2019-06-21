@@ -9,7 +9,8 @@ import { EmerComponent } from "./components/emer/emer.component";
 import { StartupComponent } from "./components/startup/startup.component";
 import { ReviewComponent } from "./components/review/review.component";
 import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
-import { VisitsComponent } from "./components/review/recentVisits/reviews.component";
+import { VisitsComponent } from "./components/review/recentVisits/visits.component";
+import { VisitDetailComponent } from "./components/review/recentVisits/visit-detail.component";
 // import { ItemDetailComponent } from "./item/item-detail.component";
 import { GuardianDetailComponent } from './components/emer/guardians/guardian-detail.component';
 const routes: Routes = [
@@ -23,6 +24,8 @@ const routes: Routes = [
     { path: 'emer', component: EmerComponent },
     { path: 'review', component: ReviewComponent},
     { path: 'guardians', component: GuardiansComponent },
+    { path: 'recentVisits', component: VisitsComponent },
+    { path: 'visited', component: VisitDetailComponent },
     { path: 'recentVisits', component: VisitsComponent},
     { path: 'guardian', component: GuardianDetailComponent}
 ];
