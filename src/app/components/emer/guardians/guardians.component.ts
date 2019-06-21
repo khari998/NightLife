@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 class Guardian {
     constructor(public name: string, public email: string, public phone: string) {
@@ -19,20 +20,32 @@ class Guardian {
     `
 })
 
-export class GuardiansComponent {
-    guardians: Guardian[];
+export class GuardiansComponent implements OnInit {
 
-    constructor() {
-        this.guardians = [
-            {name: 'omar', email: 'omar@omar.com', phone: '504-444-4444'},
-            {name: 'chris', email: 'chris@chris.com', phone: '504-555-5555'},
-            {name: 'khari', email: 'khari@khari.com', phone: '504-555-5555'},
-        ]
+    guardians = [];
+    selected = {};
+    constructor(private router: Router) {}
+    // constructor() {
+    //     this.guardians = [
+    //         {name: 'omar', email: 'omar@omar.com', phone: '504-444-4444'},
+    //         {name: 'chris', email: 'chris@chris.com', phone: '504-555-5555'},
+    //         {name: 'khari', email: 'khari@khari.com', phone: '504-555-5555'},
+    //     ]
+        // }
+    ngOnInit(): void {
+        this.guardians.push(
+            {name: 'omar', email: 'omar@omar.com', phone: '504-444-4444'}
+        )
     }
 
     onSelect(args) {
-        const selectedGuardian = this.guardians[args.index]
-        console.log(`This guardian was selected: ${selectedGuardian.name}`)
+        // const selectedGuardian = this.guardians[args.index]
+        // console.log(`This guardian was selected: ${selectedGuardian.name}`)
+        this.selected = this.guardians[args.index]
+
+        this.router.navigate(["/guardian"], {
+            queryParams: { selected: JSON.stringify(this.selected)}
+        })
     }
 }
 
