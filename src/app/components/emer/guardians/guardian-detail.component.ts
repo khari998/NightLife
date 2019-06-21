@@ -6,11 +6,11 @@ import { ActivatedRoute } from '@angular/router';
     selector: 'ns-guardian-detail',
     template: `
     <ActionBar [title]="selected.name"></ActionBar>
-    <StackLayout class="list-group-item">
-        <Label [text]="selected.name"></Label>
+    <FlexboxLayout flexDirection="column" class="list-group-item"  alignItems="center">
+        <Label [text]="selected.name" marginTop="50"></Label>
         <Label [text]="selected.email"></Label>
         <Label [text]="selected.phone"></Label>
-    </StackLayout>
+    </FlexboxLayout>
     `
 })
 
