@@ -12,4 +12,7 @@ export class EmerComponent implements OnInit {
   ngOnInit() {
   }
 
+  clickMe(e) {
+      console.log('fuck');
+  }
 }

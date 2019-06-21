@@ -2,15 +2,14 @@ import { Component } from '@angular/core';
 
 class Guardian {
     constructor(public name: string, public email: string, public phone: string) {
-
     }
 }
 
 @Component({
     selector: 'ns-guardians-list',
     template: `
-    <ActionBar title="ListView"></ActionBar>
-    <ListView [items]="guardians" class="list-group" (itemTap)="onSelect($event)">
+    <ActionBar title="Guardians"></ActionBar>
+    <ListView height="150" [items]="guardians" class="list-group" (itemTap)="onSelect($event)">
         <ng-template let-item="item">
         <StackLayout class="list-group-item">
         <Label [text]="item.name"></Label>
@@ -34,7 +33,6 @@ export class GuardiansComponent {
     onSelect(args) {
         const selectedGuardian = this.guardians[args.index]
         console.log(`This guardian was selected: ${selectedGuardian.name}`)
-
     }
 }
 
