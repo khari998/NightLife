@@ -8,7 +8,8 @@ import { RecComponent } from "./components/rec/rec.component";
 import { EmerComponent } from "./components/emer/emer.component";
 import { StartupComponent } from "./components/startup/startup.component";
 import { ReviewComponent } from "./components/review/review.component";
-// import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
+import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
+import { VisitsComponent } from "./components/review/recentVisits/reviews.component";
 // import { ItemDetailComponent } from "./item/item-detail.component";
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
     { path: 'rec', component: RecComponent },
     { path: 'emer', component: EmerComponent },
     { path: 'review', component: ReviewComponent},
-    // { path: 'guardians', component: GuardiansComponent}
+    { path: 'guardians', component: GuardiansComponent },
+    { path: 'recentVisits', component: VisitsComponent}
 ];
 
 @NgModule({
