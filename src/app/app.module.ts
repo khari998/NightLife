@@ -14,6 +14,13 @@ import { ReviewComponent } from "./components/review/review.component";
 import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
 import { VisitsComponent } from "./components/review/recentVisits/visits.component";
 import { VisitDetailComponent } from "./components/review/recentVisits/visit-detail.component";
+import { PlaceItemComponent } from "./components/map/place-item/place-item.component";
+import { GuardianDetailComponent } from "./components/emer/guardians/guardian-detail.component";
+// import * as platform from "tns-core-modules/platform";
+// declare var GMSServices: any;
+// import { googleAPI } from '../../config'
+// import * as GooglePlaces from 'nativescript-plugin-google-places';
+// import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
 
 
 
@@ -42,9 +49,11 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         RecComponent,
         EmerComponent,
         ReviewComponent,
+        PlaceItemComponent,
         GuardiansComponent,
         VisitsComponent,
         VisitDetailComponent,
+        GuardianDetailComponent
     ],
     providers: [],
     schemas: [
