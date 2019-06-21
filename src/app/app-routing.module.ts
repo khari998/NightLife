@@ -13,6 +13,8 @@ import { VisitsComponent } from "./components/review/recentVisits/visits.compone
 import { VisitDetailComponent } from "./components/review/recentVisits/visit-detail.component";
 // import { ItemDetailComponent } from "./item/item-detail.component";
 import { GuardianDetailComponent } from './components/emer/guardians/guardian-detail.component';
+import { AddGuardianComponent } from './components/emer/guardians/addGuardian/add-guardian.component';
+
 const routes: Routes = [
     // { path: "", redirectTo: "/items", pathMatch: "full" },
     // { path: "items", component: ItemsComponent },
@@ -27,7 +29,8 @@ const routes: Routes = [
     { path: 'recentVisits', component: VisitsComponent },
     { path: 'visited', component: VisitDetailComponent },
     { path: 'recentVisits', component: VisitsComponent},
-    { path: 'guardian', component: GuardianDetailComponent}
+    { path: 'guardian', component: GuardianDetailComponent},
+    { path: 'addAngel', component: AddGuardianComponent}
 ];
 
 @NgModule({
