@@ -12,7 +12,8 @@ import { EmerComponent } from "./components/emer/emer.component";
 import { StartupComponent } from "./components/startup/startup.component";
 import { ReviewComponent } from "./components/review/review.component";
 import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
-import { VisitsComponent } from "./components/review/recentVisits/reviews.component";
+import { VisitsComponent } from "./components/review/recentVisits/visits.component";
+import { VisitDetailComponent } from "./components/review/recentVisits/visit-detail.component";
 
 
 
@@ -42,7 +43,8 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         EmerComponent,
         ReviewComponent,
         GuardiansComponent,
-        VisitsComponent
+        VisitsComponent,
+        VisitDetailComponent,
     ],
     providers: [],
     schemas: [
