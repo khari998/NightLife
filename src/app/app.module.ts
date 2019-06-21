@@ -16,6 +16,7 @@ import { VisitsComponent } from "./components/review/recentVisits/visits.compone
 import { VisitDetailComponent } from "./components/review/recentVisits/visit-detail.component";
 import { PlaceItemComponent } from "./components/map/place-item/place-item.component";
 import { GuardianDetailComponent } from "./components/emer/guardians/guardian-detail.component";
+import { AddGuardianComponent } from './components/emer/guardians/addGuardian/add-guardian.component';
 // import * as platform from "tns-core-modules/platform";
 // declare var GMSServices: any;
 // import { googleAPI } from '../../config'
@@ -53,7 +54,8 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         GuardiansComponent,
         VisitsComponent,
         VisitDetailComponent,
-        GuardianDetailComponent
+        GuardianDetailComponent,
+        AddGuardianComponent,
     ],
     providers: [],
     schemas: [
