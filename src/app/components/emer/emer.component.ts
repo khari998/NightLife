@@ -13,6 +13,6 @@ export class EmerComponent implements OnInit {
   }
 
   clickMe(e) {
-      console.log('fuck');
+      console.log('omg');
   }
 }
