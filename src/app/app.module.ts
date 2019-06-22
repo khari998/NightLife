@@ -1,5 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -17,6 +18,7 @@ import { VisitDetailComponent } from "./components/review/recentVisits/visit-det
 import { PlaceItemComponent } from "./components/map/place-item/place-item.component";
 import { GuardianDetailComponent } from "./components/emer/guardians/guardian-detail.component";
 import { AddGuardianComponent } from './components/emer/guardians/addGuardian/add-guardian.component';
+// import { TextFieldBindingComponent } from './components/textfield.component';
 // import * as platform from "tns-core-modules/platform";
 // declare var GMSServices: any;
 // import { googleAPI } from '../../config'
@@ -39,6 +41,7 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptHttpClientModule,
+        NativeScriptFormsModule
     ],
     declarations: [
         AppComponent,
@@ -56,6 +59,7 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         VisitDetailComponent,
         GuardianDetailComponent,
         AddGuardianComponent,
+        // TextFieldBindingComponent
     ],
     providers: [],
     schemas: [
