@@ -53,7 +53,7 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         GuardiansComponent,
         VisitsComponent,
         VisitDetailComponent,
-        GuardianDetailComponent
+        GuardianDetailComponent,
     ],
     providers: [],
     schemas: [

@@ -35,4 +35,5 @@ typings/
 # for IOS google maps API key
 config.ts
 
+exampleData.ts
 
