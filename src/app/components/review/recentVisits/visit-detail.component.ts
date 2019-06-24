@@ -19,15 +19,23 @@ import { ActivatedRoute } from '@angular/router';
             <StackLayout class="hr-light m-10"></StackLayout>
                 <Label style="text-align: center" class="h4" text="Comments"></Label>
                 <StackLayout>
-                <Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments[0].name"></Label>
-                <Label style="text-align: center" class="h3 ; font-italic" [text]="'- ' + selected.comments[0].comment"></Label>
+                <Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments.name"></Label>
+                <Label style="text-align: center" class="h3 ; font-italic" textWrap="true" [text]="'- ' + selected.comments.comment"></Label>
+                </StackLayout>
+                <StackLayout class="input-field">
+                <TextField class="input" hint="Comments" returnKeyType="next" ngModel #comment="ngModel" required></TextField>
+                <Button text="Submit" marginTop="20" (tap)="onSubmit(comment.value)"></Button>
                 </StackLayout>
         </StackLayout>
     `
 })
 
 export class VisitDetailComponent implements OnInit{
-    selected = {};
+    selected = {
+        comments: {
+            name: '',
+            comment: [],
+    } };
 
     // constructor() {
     //     this.visit = [
@@ -59,6 +67,11 @@ export class VisitDetailComponent implements OnInit{
         this.route.queryParams.subscribe(params => {
             this.selected = JSON.parse(params["selected"]);
         });
+    }
+
+    onSubmit(comment: string) {
+        this.selected.comments.comment.unshift(comment + '\n');
+        // console.log('hmr')
     }
 
     ngOnInit(): void {}
