@@ -76,12 +76,11 @@ export class VisitsComponent implements OnInit {
             src: "https://data.whicdn.com/images/96807006/large.png",
             description: 'Better than the Chum Bucket',
             type: 'burger joint',
-            comments: [
+            comments:
                 {
                     name: 'spongebob',
-                    comment: 'I work here and love it'
+                    comment: ['I work here and love it']
                 },
-            ],
         })
         this.spots.push({
             id: 1,
@@ -91,12 +90,11 @@ export class VisitsComponent implements OnInit {
             src: "https://bit.ly/2x6p2EC",
             description: 'Best middle of the mall ice cream out there',
             type: 'ice cream spot',
-            comments: [
+            comments:
                 {
                     name: 'jimmy',
-                    comment: 'Ice cream taste great'
+                    comment: ['Ice cream taste great']
                 },
-            ],
         })
         this.spots.push({
             id: 2,
@@ -106,12 +104,11 @@ export class VisitsComponent implements OnInit {
             src: "https://cdn4.iconfinder.com/data/icons/flat-brand-logo-2/512/mcdonalds-512.png",
             description: 'At least our meat is somewhat real',
             type: 'fast food',
-            comments: [
+            comments:
                 {
                     name: 'stephen',
-                    comment: 'Service was horrendous'
+                    comment: ['Service was horrendous']
                 },
-            ],
         })
         this.spots.push({
             id: 3,
@@ -121,12 +118,11 @@ export class VisitsComponent implements OnInit {
             src: "https://adc3ef35f321fe6e725a-fb8aac3b3bf42afe824f73b606f0aa4c.ssl.cf1.rackcdn.com/tenantlogos/1073.png",
             description: 'Spicy chicken taste like heaven on bun',
             type: 'fine dining',
-            comments: [
+            comments:
                 {
                     name: 'Chris',
-                    comment: 'I love that gosh darn Spicy Chicken Deluxe'
+                    comment: ['I love that gosh darn Spicy Chicken Deluxe']
                 },
-            ]
         })
         this.spots.push({
             id: 4,
@@ -136,12 +132,11 @@ export class VisitsComponent implements OnInit {
             src: "https://adc3ef35f321fe6e725a-fb8aac3b3bf42afe824f73b606f0aa4c.ssl.cf1.rackcdn.com/tenantlogos/281.png",
             description: 'Two for Twenty the best deal',
             type: 'resturant',
-            comments: [
+            comments:
                 {
                     name: 'tia',
-                    comment: 'Food is nice, but the portions are way to small'
+                    comment: ['Food is nice, but the portions are way to small']
                 },
-            ],
         })
         this.spots.push({
             id: 5,
@@ -151,12 +146,11 @@ export class VisitsComponent implements OnInit {
             src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Hard_Rock_Cafe_Logo.svg/1024px-Hard_Rock_Cafe_Logo.svg.png",
             description: 'Hard Rock Prices should be our name',
             type: 'resturant',
-            comments: [
+            comments:
                 {
                     name: 'Pete',
-                    comment: 'The music is too loud. I have to yell to talk'
+                    comment: ['The music is too loud. I have to yell to talk']
                 },
-            ],
         })
         this.spots.push({
             id: 6,
@@ -166,12 +160,11 @@ export class VisitsComponent implements OnInit {
             src: "https://www.scrapehero.com/store/wp-content/uploads/2018/07/RAISING-CANE.png",
             description: 'Better eat before the chicken start sweating out',
             type: 'fast food',
-            comments: [
+            comments:
                 {
                     name: 'alana',
-                    comment: 'The lemonade is too strong'
+                    comment: ['The lemonade is too strong']
                 },
-            ],
         })
         this.spots.push({
             id: 7,
@@ -181,12 +174,11 @@ export class VisitsComponent implements OnInit {
             src: "https://adc3ef35f321fe6e725a-fb8aac3b3bf42afe824f73b606f0aa4c.ssl.cf1.rackcdn.com/tenantlogos/4424.png",
             description: 'Panda Panda Panda',
             type: 'fast food',
-            comments: [
+            comments:
                 {
                     name: 'desiinger',
-                    comment: 'I got broads in atlanta'
+                    comment: []
                 },
-            ],
         })
         this.spots.push({
             id: 8,
@@ -196,12 +188,11 @@ export class VisitsComponent implements OnInit {
             src: "https://somi.org/img/sponsor/buffalo-wild-wings-800px.png",
             description: 'Biggest scam since food at an airport',
             type: 'wing spot',
-            comments: [
+            comments:
                 {
                     name: 'ricky rozay',
-                    comment: 'Pretty good, but not better than wingstop'
+                    comment: ['Pretty good, but not better than wingstop']
                 },
-            ],
         })
         this.spots.push({
             id: 9,
@@ -211,12 +202,11 @@ export class VisitsComponent implements OnInit {
             src: "https://res.cloudinary.com/grubhub/image/upload/w_1200,h_800,f_auto,fl_lossy,q_80,c_fit/rtocacelorw6exd56m2v",
             description: 'Sir, the guac is extra',
             type: 'mexican',
-            comments: [
+            comments:
                 {
                     name: 'keith',
-                    comment: 'Friendly workers'
+                    comment: ['Friendly workers']
                 },
-            ],
         })
         this.spots.push({
             id: 10,
@@ -226,14 +216,12 @@ export class VisitsComponent implements OnInit {
             src: "https://adc3ef35f321fe6e725a-fb8aac3b3bf42afe824f73b606f0aa4c.ssl.cf1.rackcdn.com/tenantlogos/5922.png",
             description: 'Lifetime supply of tacos for whoever can guess what our meat is made of',
             type: 'fast food',
-            comments: [
+            comments:
                 {
                     name: 'raymond',
-                    comment: 'Food was ready quick, but its taste left much to be desired'
+                    comment: ['Food was ready quick, but its taste left much to be desired']
                 },
-            ],
         })
-
     }
 
     // onSelect(args) {
