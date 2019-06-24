@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { serverURL } from '../../../config';
+
 
 
 @Injectable({
@@ -9,7 +11,7 @@ export class ServerService {
 
   constructor(private http: HttpClient) { }
 
-  url: string = 'https://470937f6.ngrok.io'
+  url: string = serverURL;
   endpoint: string = '/locations';
 
   getLocations() {
