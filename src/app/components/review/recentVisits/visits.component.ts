@@ -177,7 +177,7 @@ export class VisitsComponent implements OnInit {
             comments:
                 {
                     name: 'desiinger',
-                    comment: ['I got broads in atlanta']
+                    comment: []
                 },
         })
         this.spots.push({

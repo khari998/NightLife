@@ -20,9 +20,9 @@ import { ActivatedRoute } from '@angular/router';
                 <Label style="text-align: center" class="h4" text="Comments"></Label>
                 <StackLayout>
                 <Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments.name"></Label>
-                <Label style="text-align: center" class="h3 ; font-italic" textWrap="true" [text]="'- ' + selected.comments.comment"></Label>
+                <Label style="text-align: center" class="h3 ; font-italic" textWrap="true" [text]="selected.comments.comment.join(' ')"></Label>
                 </StackLayout>
-                <StackLayout class="input-field">
+                <StackLayout class="input-field ; m-x-5">
                 <TextField class="input" hint="Comments" returnKeyType="next" ngModel #comment="ngModel" required></TextField>
                 <Button text="Submit" marginTop="20" (tap)="onSubmit(comment.value)"></Button>
                 </StackLayout>
@@ -70,7 +70,7 @@ export class VisitDetailComponent implements OnInit{
     }
 
     onSubmit(comment: string) {
-        this.selected.comments.comment.unshift(comment + '\n');
+        this.selected.comments.comment.unshift('- ' + comment + '\n');
         // console.log('hmr')
     }
 
