@@ -32,6 +32,7 @@ import { AddGuardianComponent } from './components/emer/guardians/addGuardian/ad
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NavbarComponent } from "./components/navbar/navbar.component";
 
 @NgModule({
     bootstrap: [
@@ -59,6 +60,7 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         VisitDetailComponent,
         GuardianDetailComponent,
         AddGuardianComponent,
+        NavbarComponent
         // TextFieldBindingComponent
     ],
     providers: [],
