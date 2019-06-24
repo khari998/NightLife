@@ -11,9 +11,17 @@ import { ActivatedRoute } from '@angular/router';
     // selector: 'ns-visited',
     template: `
     <ActionBar [title]="selected.venue"></ActionBar>
-        <StackLayout class="list-group-item">
-        <Label [text]="selected.city"></Label>
-        <Label [text]="selected.id"></Label>
+        <StackLayout orientation="vertical" class="m-x-auto">
+            <Image [src]="selected.src" width="210"></Image>
+            <Label style="text-align: center" class="h2" [text]="selected.city"></Label>
+            <Label style="text-align: center" class="body" [text]="selected.address"></Label>
+            <Label style="text-align: center" class="h3; font-italic" textWrap="true" [text]="'- ' + selected.description"></Label>
+            <StackLayout class="hr-light m-10"></StackLayout>
+                <Label style="text-align: center" class="h4" text="Comments"></Label>
+                <StackLayout>
+                <Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments[0].name"></Label>
+                <Label style="text-align: center" class="h3 ; font-italic" [text]="'- ' + selected.comments[0].comment"></Label>
+                </StackLayout>
         </StackLayout>
     `
 })

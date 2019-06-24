@@ -34,7 +34,9 @@ export class GuardiansComponent implements OnInit {
         // }
     ngOnInit(): void {
         this.guardians.push(
-            {name: 'omar', email: 'omar@omar.com', phone: '504-444-4444'}
+            {name: 'omar', email: 'omar@omar.com', phone: '504-444-4444'},
+            {name: 'chris', email: 'chris@chris.com', phone: '504-555-5555'},
+            {name: 'khari', email: 'khari@khari.com', phone: '504-555-5555'},
         )
     }
 
