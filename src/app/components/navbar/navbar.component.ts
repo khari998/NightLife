@@ -15,6 +15,8 @@ export class NavbarComponent implements OnInit {
   @ViewChild('image1', null) image1: ElementRef;
   @ViewChild('image2', null) image2: ElementRef;
   @ViewChild('image3', null) image3: ElementRef;
+  @ViewChild('image4', null) image4: ElementRef;
+  @ViewChild('image5', null) image5: ElementRef;
 
   @Output() tabSelected = new EventEmitter<number>();
 

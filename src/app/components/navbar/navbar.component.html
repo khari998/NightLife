@@ -8,8 +8,13 @@
       <Image #image2 src="~/app/icons/maps-and-flags.png" height="25" width="25"></Image>
     </GridLayout>
     <GridLayout col="2"  (tap)="selectTab(2)">
-      Heart
       <Image #image3 src="~/app/icons/heart.png" height="25" width="25"></Image>
+    </GridLayout>
+    <GridLayout col="3" [nsRouterLink]="['/rec']" (tap)="selectTab(2)">
+      <Image #image4 src="~/app/icons/feedback.png" height="25" width="25"></Image>
+    </GridLayout>
+    <GridLayout col="4" [nsRouterLink]="['/review']" (tap)="selectTab(2)">
+      <Image #image5 src="~/app/icons/review.png" height="25" width="25"></Image>
     </GridLayout>
   </GridLayout>
 </GridLayout>
