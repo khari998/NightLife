@@ -24,8 +24,6 @@ export class MapComponent implements OnInit {
     your_token = mapboxAPI;
     nolaData;
 
-    ctrl = this;
-
  onMapReady = (args) => {
 
 
@@ -41,17 +39,19 @@ export class MapComponent implements OnInit {
     // args.map.setMapStyle("dark");
 
     // set markers for each item in nolaData
-    this.nolaData.forEach(place => {
-        let lat = place.lat || place.location.latl
-        let lng = place.long || place.location.lng;
-        let subtitle =  place.type || place.categories[0].name;
-        args.map.addMarkers([{
-            lat,
-            lng,
-            title: place.name,
-            subtitle,
-        }])
-    })
+    if (this.nolaData.length) {
+        this.nolaData.forEach(place => {
+            let lat = place.lat || place.location.lat;
+            let lng = place.long || place.location.lng;
+            let subtitle =  place.type || place.categories[0].name;
+            args.map.addMarkers([{
+                lat,
+                lng,
+                title: place.name,
+                subtitle,
+            }])
+        })
+    }
 };
 
     constructor(private FourSquareService: FourSquareService, private ServerService: ServerService) {
@@ -82,20 +82,39 @@ export class MapComponent implements OnInit {
             if (!this.nolaData.length) {
                 this.FourSquareService.getLocationData()
                     .subscribe((data) => {
-                        this.nolaData = data.response.venues;
-                        // now post to DB
+                        const arr = [];
                         data.response.venues.forEach(venue => {
-                            let name = venue.name || "No name";
-                            let type = venue.categories[0].name || "No type";
-                            let address = venue.location.address || "No address";
-                            let lat = venue.location.lat;
-                            let long = venue.location.lng;
-                            this.FourSquareService.postLocationData(name, type, address, lat, long)
+                            const obj = {
+                                name: '',
+                                type: '',
+                                address: '',
+                                lat: '',
+                                long: ''
+                            };
+                            obj.name = venue.name || "No name";
+                            if (venue.categories) {
+                                obj.type = venue.categories[0].name;
+                            } else {
+                                obj.type = "No type";
+                            }
+                            obj.address = venue.location.address || "No address";
+                            obj.lat = venue.location.lat;
+                            obj.long = venue.location.lng;
+                            arr.push(obj);
                         })
+                        this.FourSquareService.postLocationData(arr)
+                            .subscribe(() => {
+                                this.ServerService.getLocations()
+                                    .subscribe(data => {
+                                        this.nolaData = data;
+                                    })
+                            }, (error) => {
+                                console.log(error);
+                            })
+
                     })
             }
         })
 
-
-}
+    }
 }
