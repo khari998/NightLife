@@ -1,0 +1,15 @@
+<GridLayout height="60" verticalAlignment="bottom">
+  <GridLayout columns="*, *, *, *, *" height="60" backgroundColor="#F8F8FF">
+    <GridLayout #tabHighlight col="0" backgroundColor="#F8A200"></GridLayout>
+    <GridLayout col="0" [nsRouterLink]="['/emer']" (tap)="selectTab(0)">
+      <Image #image1 src="~/app/icons/message.png" height="23" width="23"></Image>
+    </GridLayout>
+    <GridLayout col="1" [nsRouterLink]="['/map']" (tap)="selectTab(1)">
+      <Image #image2 src="~/app/icons/maps-and-flags.png" height="25" width="25"></Image>
+    </GridLayout>
+    <GridLayout col="2"  (tap)="selectTab(2)">
+      Heart
+      <Image #image3 src="~/app/icons/heart.png" height="25" width="25"></Image>
+    </GridLayout>
+  </GridLayout>
+</GridLayout>

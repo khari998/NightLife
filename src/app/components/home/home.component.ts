@@ -13,4 +13,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  tabSelected(args: number) {
+    console.log("tab selected: " + args);
+  }
+
 }
