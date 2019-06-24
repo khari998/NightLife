@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { clientFS, secretFS } from '../../../config';
+import { clientFS, secretFS, serverURL } from '../../../config';
 
 
 @Injectable({
@@ -12,11 +12,14 @@ export class FourSquareService {
     long = '-90.07507';
     v = '20190619';
     categoryId = '4d4b7105d754a06376d81259';
-    limit = '5';
-    radius = '100';
+    limit = '15';
+    //radius = '100';
 
     url: string = 'https://api.foursquare.com/v2/venues/search';
     // urlParams: string = `?client_id=${clientFS}&client_secret=${secretFS}&ll=${this.lat},${this.long}&v=${this.v}&categoryId=${this.categoryId}&llAcc=${this.llAcc}`;
+
+    serverUrl: string = serverURL;
+    endpont: string = '/locations';
 
   constructor(private http: HttpClient) {
 
@@ -32,9 +35,19 @@ export class FourSquareService {
               v: this.v,
               categoryId: this.categoryId,
               limit: this.limit,
-              raduis: this.radius,
+              //raduis: this.radius,
           }
       })
-
   }
+
+  postLocationData(arr) {
+    return this.http.post(`${this.serverUrl}${this.endpont}`, arr)
+        // .subscribe(() => {
+        //     console.log("called")
+        // }, (error) => {
+        //     console.log(error);
+        // })
+  }
+
+
 }

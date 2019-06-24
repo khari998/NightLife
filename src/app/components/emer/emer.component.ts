@@ -17,9 +17,8 @@ export class EmerComponent implements OnInit {
   ngOnInit() {
   }
 
-//   addGuardian = () => {
-//     // this.guardians.push(newGuar
-//     // this.addGuardianService.addContact();
-//   }
+  clickMe(e) {
+      console.log('omg');
+  }
 }
 

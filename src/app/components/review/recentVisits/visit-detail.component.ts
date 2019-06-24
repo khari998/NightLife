@@ -11,15 +11,31 @@ import { ActivatedRoute } from '@angular/router';
     // selector: 'ns-visited',
     template: `
     <ActionBar [title]="selected.venue"></ActionBar>
-        <StackLayout class="list-group-item">
-        <Label [text]="selected.city"></Label>
-        <Label [text]="selected.id"></Label>
+        <StackLayout orientation="vertical" class="m-x-auto">
+            <Image [src]="selected.src" width="210"></Image>
+            <Label style="text-align: center" class="h2" [text]="selected.city"></Label>
+            <Label style="text-align: center" class="body" [text]="selected.address"></Label>
+            <Label style="text-align: center" class="h3; font-italic" textWrap="true" [text]="'- ' + selected.description"></Label>
+            <StackLayout class="hr-light m-10"></StackLayout>
+                <Label style="text-align: center" class="h4" text="Comments"></Label>
+                <StackLayout>
+                <Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments.name"></Label>
+                <Label style="text-align: center" class="h3 ; font-italic" textWrap="true" [text]="selected.comments.comment.join(' ')"></Label>
+                </StackLayout>
+                <StackLayout class="input-field ; m-x-5">
+                <TextField class="input" hint="Comments" returnKeyType="next" ngModel #comment="ngModel" required></TextField>
+                <Button text="Submit" marginTop="20" (tap)="onSubmit(comment.value)"></Button>
+                </StackLayout>
         </StackLayout>
     `
 })
 
 export class VisitDetailComponent implements OnInit{
-    selected = {};
+    selected = {
+        comments: {
+            name: '',
+            comment: [],
+    } };
 
     // constructor() {
     //     this.visit = [
@@ -51,6 +67,11 @@ export class VisitDetailComponent implements OnInit{
         this.route.queryParams.subscribe(params => {
             this.selected = JSON.parse(params["selected"]);
         });
+    }
+
+    onSubmit(comment: string) {
+        this.selected.comments.comment.unshift('- ' + comment + '\n');
+        // console.log('hmr')
     }
 
     ngOnInit(): void {}
