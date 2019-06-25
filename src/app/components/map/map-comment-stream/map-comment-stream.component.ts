@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerService } from '~/app/services/server.service';
 
 @Component({
   selector: 'ns-map-comment-stream',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapCommentStreamComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ServerService: ServerService) { }
+
+  comments: any = [];
 
   ngOnInit() {
+      this.ServerService.getComments()
+      .subscribe(data => {
+          this.comments = data;
+      })
   }
 
 }

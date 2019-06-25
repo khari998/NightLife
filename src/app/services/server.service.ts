@@ -14,6 +14,7 @@ export class ServerService {
 
   url: string = serverURL;
   endpoint: string = '/locations';
+  commentEndpoint: string = '/comments';
 
   getLocations() {
       return this.http.get(`${this.url}${this.endpoint}`)
@@ -24,6 +25,14 @@ export class ServerService {
 //   changeCommentState() {
 //       this.renderCommentStream = !this.renderCommentStream;
 //   }
+
+
+
+  // function to get comments
+
+  getComments() {
+      return this.http.get(`${this.url}${this.commentEndpoint}`)
+  }
 
 
 }

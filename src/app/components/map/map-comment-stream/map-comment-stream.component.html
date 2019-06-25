@@ -1,3 +1,6 @@
 <StackLayout>
-    <Button text="map-comment-stream works!" class="btn btn-primary"></Button>
+    <Label
+    *ngFor="let comment of comments"
+    text={{comment.text}}
+    ></Label>
 </StackLayout>
