@@ -12,7 +12,7 @@ class Guardian {
     selector: 'ns-guardians-list',
     template: `
         <ActionBar title="Guardians"></ActionBar>
-        <ListView height="150" [items]="guardians" class="list-group" (itemTap)="onSelect($event)">
+        <ListView height="250" [items]="guardians" class="list-group" (itemTap)="onSelect($event)">
             <ng-template let-item="item">
                 <StackLayout class="list-group-item">
                     <Label [text]="item.name"></Label>

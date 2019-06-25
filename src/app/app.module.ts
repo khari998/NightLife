@@ -17,7 +17,8 @@ import { VisitsComponent } from "./components/review/recentVisits/visits.compone
 import { VisitDetailComponent } from "./components/review/recentVisits/visit-detail.component";
 import { PlaceItemComponent } from "./components/map/place-item/place-item.component";
 import { GuardianDetailComponent } from "./components/emer/guardians/guardian-detail.component";
-import { AddGuardianComponent } from './components/emer/guardians/addGuardian/add-guardian.component';
+import { AddGuardianComponent } from './components/emer/guardians/addGuardian/add-guardian.component'
+import { MapCommentStreamComponent } from './components/map/map-comment-stream/map-comment-stream.component';
 // import { TextFieldBindingComponent } from './components/textfield.component';
 // import * as platform from "tns-core-modules/platform";
 // declare var GMSServices: any;
@@ -33,11 +34,10 @@ import { AddGuardianComponent } from './components/emer/guardians/addGuardian/ad
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NavbarComponent } from "./components/navbar/navbar.component";
+import { from } from "rxjs";
 
 @NgModule({
-    bootstrap: [
-        AppComponent
-    ],
+    bootstrap: [AppComponent],
     imports: [
         NativeScriptModule,
         AppRoutingModule,
@@ -60,19 +60,18 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
         VisitDetailComponent,
         GuardianDetailComponent,
         AddGuardianComponent,
-        NavbarComponent
+        NavbarComponent,
+        MapCommentStreamComponent,
         // TextFieldBindingComponent
     ],
     providers: [],
-    schemas: [
-        NO_ERRORS_SCHEMA
-    ]
+    schemas: [NO_ERRORS_SCHEMA]
 })
 /*
 Pass your application module to the bootstrapModule function located in main.ts to start your app
 */
 export class AppModule {
     constructor() {
-       // GooglePlaces.init();
+        // GooglePlaces.init();
     }
 }
