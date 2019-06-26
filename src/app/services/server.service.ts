@@ -48,8 +48,12 @@ export class ServerService {
     }
 
 
+
+
   marker: any;
 
   currentLocation: any;
+
+  // on like button click, need to update in DB likes
 
 }

@@ -19,7 +19,16 @@ export class MapCommentStreamComponent implements OnInit {
       this.ServerService.getComments()
       .subscribe(data => {
           this.comments = data;
+          console.log(this.comments);
       })
   }
 
+  hotTap() {
+    console.log('hot tap')
+  }
+
+  coldTap() {
+    console.log('cold tap')
+  }
 }
+
