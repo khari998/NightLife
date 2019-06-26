@@ -1,6 +1,6 @@
 <StackLayout>
     <ns-guardians-list [guardians]="addGuardianService.currentGuardians"></ns-guardians-list>
     <Button text="Add A Guardian" [nsRouterLink]="['/addAngel']" class="btn btn-primary btn-active" [handleSubmit]="addGuardianService.addContact"></Button>
-    <Button text="Activate S.O.S." class="btn btn-primary btn-active"></Button>
+    <Button text="Activate S.O.S." class="btn btn-primary btn-active" (tap)="serverService.activateSOS()"></Button>
 </StackLayout>
 
