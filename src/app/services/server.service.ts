@@ -5,34 +5,47 @@ import { serverURL } from '../../../config';
 
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 
 export class ServerService {
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-  url: string = serverURL;
-  endpoint: string = '/locations';
-  commentEndpoint: string = '/comments';
+    url: string = serverURL;
+    endpoint: string = '/locations';
+    commentEndpoint: string = '/comments';
 
-  getLocations() {
-      return this.http.get(`${this.url}${this.endpoint}`)
-  }
-
-//   public renderCommentStream = false;
-
-//   changeCommentState() {
-//       this.renderCommentStream = !this.renderCommentStream;
-//   }
+    smsEndpoint: string = '/sms';
+    sosMessage: string = `*Current User* has indicated they are experiencing an emergency. Please contact them and / or the authorities`;
 
 
+    getLocations() {
+        return this.http.get(`${this.url}${this.endpoint}`)
+    }
 
-  // function to get comments
+    //   public renderCommentStream = false;
 
-  getComments() {
-      return this.http.get(`${this.url}${this.commentEndpoint}`)
-  }
+    //   changeCommentState() {
+    //       this.renderCommentStream = !this.renderCommentStream;
+    //   }
+    activateSOS() {
+        console.log(`${this.url}${this.smsEndpoint}`)
+
+        return this.http.post(`${this.url}${this.smsEndpoint}`, this.sosMessage)
+            .subscribe(data => {
+                console.log(data)
+            },
+                error => {
+                    console.log(error) })
+
+    }
+
+    // function to get comments
+
+    getComments() {
+        return this.http.get(`${this.url}${this.commentEndpoint}`)
+    }
 
 
 }
