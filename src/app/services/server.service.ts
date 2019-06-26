@@ -20,12 +20,6 @@ export class ServerService {
       return this.http.get(`${this.url}${this.endpoint}`)
   }
 
-//   public renderCommentStream = false;
-
-//   changeCommentState() {
-//       this.renderCommentStream = !this.renderCommentStream;
-//   }
-
 
 
   // function to get comments
@@ -34,5 +28,9 @@ export class ServerService {
       return this.http.get(`${this.url}${this.commentEndpoint}`)
   }
 
+
+  marker: any;
+
+  currentLocation: any;
 
 }
