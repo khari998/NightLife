@@ -9,9 +9,11 @@ import { ServerService } from '~/app/services/server.service';
 })
 export class MapCommentStreamComponent implements OnInit {
 
-  constructor(private ServerService: ServerService) { }
+  constructor(public ServerService: ServerService) { }
 
   comments: any = [];
+
+  marker: any;
 
   ngOnInit() {
       this.ServerService.getComments()

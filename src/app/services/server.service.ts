@@ -48,4 +48,8 @@ export class ServerService {
     }
 
 
+  marker: any;
+
+  currentLocation: any;
+
 }

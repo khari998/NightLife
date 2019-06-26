@@ -33,8 +33,21 @@ export class MapComponent implements OnInit {
 
 
     changeCommentStreamState(marker) {
+        this.ServerService.marker = marker;
         this.renderCommentStream = !this.renderCommentStream
-        this.ref.detectChanges();
+        this.ServerService.getLocations()
+            .subscribe((data: Array<any>) => {
+
+                data.forEach(location => {
+                    // set current location on service to location that matches marker lat and long
+                    if (marker.lat === location.lat && marker.lng === location.long) {
+                        this.ServerService.currentLocation = location;
+                    }
+                })
+                this.ref.detectChanges();
+                console.log(this.ServerService.currentLocation);
+            })
+
     };
 
 

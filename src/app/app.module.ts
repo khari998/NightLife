@@ -5,8 +5,6 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
 import { HomeComponent } from "./components/home/home.component";
 import { MapComponent } from "./components/map/map.component";
 import { RecComponent } from "./components/rec/rec.component";
@@ -47,8 +45,6 @@ import { from } from "rxjs";
     ],
     declarations: [
         AppComponent,
-        ItemsComponent,
-        ItemDetailComponent,
         StartupComponent,
         HomeComponent,
         MapComponent,

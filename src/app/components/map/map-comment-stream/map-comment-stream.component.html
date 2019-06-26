@@ -1,6 +1,16 @@
 <StackLayout>
-    <Label
-    *ngFor="let comment of comments"
-    text={{comment.text}}
-    ></Label>
+    <Button text="Hot"></Button>
+    <Button text="Not"></Button>
+    <StackLayout *ngFor="let comment of comments">
+        <Label
+        text="Comments for {{ServerService.marker.title}}"
+        ></Label>
+        <Label
+        *ngIf="(comment.locationId === ServerService.currentLocation.id)"
+        text="{{comment.text}}"
+        ></Label>
+    </StackLayout>
 </StackLayout>
+
+
+
