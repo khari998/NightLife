@@ -9,14 +9,14 @@ import { screen } from "platform";
 })
 export class NavbarComponent implements OnInit {
 
-  @ViewChild('tabHighlight', null) tabHighlight: ElementRef;
+  @ViewChild('tabHighlight', { static: false }) tabHighlight: ElementRef;
   selectedTab: number = 0;
 
-  @ViewChild('image1', null) image1: ElementRef;
-  @ViewChild('image2', null) image2: ElementRef;
-  @ViewChild('image3', null) image3: ElementRef;
-  @ViewChild('image4', null) image4: ElementRef;
-  @ViewChild('image5', null) image5: ElementRef;
+  @ViewChild('image1', { static: false }) image1: ElementRef;
+  @ViewChild('image2', { static: false }) image2: ElementRef;
+  @ViewChild('image3', { static: false }) image3: ElementRef;
+  @ViewChild('image4', { static: false }) image4: ElementRef;
+  @ViewChild('image5', { static: false }) image5: ElementRef;
 
   @Output() tabSelected = new EventEmitter<number>();
 
