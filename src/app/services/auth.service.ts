@@ -1,8 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { FIREBASE_API_KEY } from "../../../config";
-import { EmailValidator } from "@angular/forms";
-import { ɵangular_packages_platform_browser_platform_browser_d } from "@angular/platform-browser";
 
 
 @Injectable({ providedIn: 'root' })
