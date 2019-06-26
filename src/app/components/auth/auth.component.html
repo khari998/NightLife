@@ -1,4 +1,3 @@
-<ns-action-bar [title]="isLogin ? 'Login' : 'Signup'" [showBackButton]="false" [hasMenu]="false"></ns-action-bar>
 <StackLayout class="form" [formGroup]="form">
   <StackLayout class="input-field">
     <Label class="label" text="E-Mail" [ngClass]="{ invalid: !emailControlIsValid }"></Label>
@@ -12,7 +11,7 @@
       hint="Min 6 characters" formControlName="password" (returnPress)="onDone()" #passwordEl></TextField>
     <Label *ngIf="!passwordControlIsValid" text="Must be 6+ characters long."></Label>
   </StackLayout>
-  <Button class="btn btn-flat" [text]="isLogin ? 'Signup instead' : 'Login instead'" (tap)="onSwitch()"></Button>
+  <Button class="btn btn-flat" [text]="isLogin ? 'Signup' : 'Login'" (tap)="onSwitch()"></Button>
   <Button [text]="isLogin ? 'Login' : 'Signup'" class="btn btn-primary btn-rounded-lg" (tap)="onSubmit()"
     [isEnabled]="form.valid"></Button>
 </StackLayout>

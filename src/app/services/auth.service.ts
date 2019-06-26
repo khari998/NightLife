@@ -7,12 +7,12 @@ import { FIREBASE_API_KEY } from "../../../config";
 export class AuthService {
   
   constructor(private http: HttpClient) {
-    
   }
 
   signUp(email: string, password: string) {
-    this.http.post(
-      `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyCustomToken?key=${FIREBASE_API_KEY}`,
+    console.log(email, password)
+    return this.http.post(
+      `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${FIREBASE_API_KEY}`,
       { email: email, password: password, returnSecureToken: true }
     ).subscribe(response => {
       console.log(response);
