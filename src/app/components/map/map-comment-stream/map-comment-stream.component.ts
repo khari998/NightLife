@@ -23,12 +23,13 @@ export class MapCommentStreamComponent implements OnInit {
       })
   }
 
-  hotTap() {
-    console.log('hot tap')
+  hotTap(locationId) {
+    this.ServerService.likeLocation(locationId);
   }
 
-  coldTap() {
-    console.log('cold tap')
+  coldTap(locationId) {
+      this.ServerService.dislikeLocation(locationId);
   }
+
 }
 

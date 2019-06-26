@@ -1,6 +1,6 @@
 <StackLayout>
-    <Button text="Hot" (tap)="hotTap()"></Button>
-    <Button text="Not" (tap)="coldTap()"></Button>
+    <Button text="Hot" (tap)="hotTap(ServerService.currentLocation.id)"></Button>
+    <Button text="Not" (tap)="coldTap(ServerService.currentLocation.id)"></Button>
     <Label
     text="Comments for {{ServerService.marker.title}}"
     ></Label>
