@@ -1,10 +1,13 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { FIREBASE_API_KEY } from "../../../config";
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject } from 'rxjs';
 import { alert } from 'tns-core-modules/ui/dialogs';
+import { RouterExtensions } from "nativescript-angular/router";
+
+import { FIREBASE_API_KEY } from "../../../config";
 import { User } from '../../app/components/auth/user.model';
+
 
 interface AuthResponseData {
   kind: string;
@@ -20,7 +23,7 @@ interface AuthResponseData {
 export class AuthService {
   private _user = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: RouterExtensions) { }
 
   signUp(email: string, password: string) {
     return this.http.post<AuthResponseData>(
@@ -64,6 +67,11 @@ export class AuthService {
         }
       })
     )
+  }
+
+  logout() {
+    this._user.next(null);
+    this.router.navigate(['/'], { clearHistory: true });
   }
 
   private handleSignIn(

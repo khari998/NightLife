@@ -2,6 +2,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
+import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -35,6 +36,7 @@ import { AddGuardianComponent } from './components/emer/guardians/addGuardian/ad
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { AuthComponent } from "./components/auth/auth.component";
+import { SharedModule } from '../app/shared/shared.module';
 
 @NgModule({
     bootstrap: [
@@ -44,8 +46,10 @@ import { AuthComponent } from "./components/auth/auth.component";
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptHttpClientModule,
+        NativeScriptUISideDrawerModule,
         NativeScriptFormsModule,
         ReactiveFormsModule,
+        SharedModule
     ],
     declarations: [
         AppComponent,
