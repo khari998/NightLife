@@ -52,6 +52,7 @@ export class ServerService {
 
 
 
+    icons = ['res://number_0', 'res://number_1', 'res://number_2', 'res://number_3', 'res://sunny']
 
   marker: any;
 
@@ -63,7 +64,6 @@ export class ServerService {
       return this.http.post(`${this.url}${this.ratingsEndpoint}`, { locationId })
         .subscribe(() => {
             console.log('successful post to DB of like rating');
-
         }, (error) => {
             console.log(error);
         })

@@ -43,13 +43,25 @@ export class MapCommentStreamComponent implements OnInit {
     // make sure icon is conditional based on rating moving up by 1
     let icon;
 
+    for (let i = 0; i < this.ServerService.icons.length; i++) {
+        let newIndex;
+        if (this.ServerService.currentLocation.rating_avg + 1 >= 3) {
+            newIndex = 3
+        } else if (this.ServerService.currentLocation.rating_avg + 1 <= 0) {
+            newIndex = 0
+        } else {
+            newIndex = this.ServerService.currentLocation.rating_avg + 1
+        }
+        icon = this.ServerService.icons[newIndex]
+    }
+
     const data = {
         id: this.ServerService.currentLocation.id,
         lat: this.ServerService.currentLocation.lat,
         lng: this.ServerService.currentLocation.long,
         title: this.ServerService.currentLocation.name,
         subtitle: this.ServerService.currentLocation.type,
-        icon: 'res://number_1.png',
+        icon,
         onTap: () => {
             // this needs to be old onTap function
             console.log('tapped');
