@@ -1,10 +1,11 @@
 <StackLayout>
-    <Button text="Hot"></Button>
-    <Button text="Not"></Button>
+    <Button text="Hot" (tap)="hotTap(ServerService.currentLocation.id)"></Button>
+    <Button text="Not" (tap)="coldTap(ServerService.currentLocation.id)"></Button>
+    <Button text="rem mark" (tap)="removeMarker(map, ServerService.currentLocation.id)"></Button>
+    <Label
+    text="Comments for {{ServerService.marker.title}}"
+    ></Label>
     <StackLayout *ngFor="let comment of comments">
-        <Label
-        text="Comments for {{ServerService.marker.title}}"
-        ></Label>
         <Label
         *ngIf="(comment.locationId === ServerService.currentLocation.id)"
         text="{{comment.text}}"

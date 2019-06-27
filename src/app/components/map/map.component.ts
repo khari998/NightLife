@@ -1,7 +1,6 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { registerElement } from "nativescript-angular/element-registry";
 //registerElement("MapView", () => require("nativescript-google-maps-sdk").MapView);
-import { Marker, Position } from 'nativescript-google-maps-sdk';
 import * as geolocation from "nativescript-geolocation";
 import { Accuracy } from "tns-core-modules/ui/enums"; // used to describe at what accuracy the location should be get
 import { mapboxAPI } from '../../../../config';
@@ -9,6 +8,7 @@ import { FourSquareService } from '../../services/four-square.service';
 import { Observable } from 'rxjs';
 import { ServerService } from '~/app/services/server.service';
 import { Image } from "tns-core-modules/ui/image";
+const mapbox = require("nativescript-mapbox");
 
 registerElement("Mapbox", () => require("nativescript-mapbox").MapboxView);
 
@@ -30,7 +30,12 @@ export class MapComponent implements OnInit {
     your_token = mapboxAPI;
     nolaData;
     renderCommentStream = false;
+    map: any
 
+    // public removeMarker(locationId) {
+    //     //this.map.args.removeMarker([locationId]);
+    //     console.log('is this function being passed down?')
+    // }
 
     changeCommentStreamState(marker) {
         this.ServerService.marker = marker;
@@ -45,13 +50,14 @@ export class MapComponent implements OnInit {
                     }
                 })
                 this.ref.detectChanges();
-                console.log(this.ServerService.currentLocation);
+                console.log(this.ServerService.currentLocation, this.ServerService.marker);
             })
 
     };
 
 
     onMapReady = args => {
+        this.map = args.map;
         args.map.addMarkers([
             {
                 lat: 29.95465,
@@ -70,14 +76,19 @@ export class MapComponent implements OnInit {
                 let lat = place.lat || place.location.lat;
                 let lng = place.long || place.location.lng;
                 let subtitle = place.type || place.categories[0].name;
+                let id = place.id;
                 args.map.addMarkers([
                     {
+                        id,
                         lat,
                         lng,
                         title: place.name,
                         subtitle,
                         icon: "res://number_0",
                         onTap: this.changeCommentStreamState.bind(this),
+                        onCalloutTap: () => {
+                            console.log('callout tapped');
+                        }
                         //onCalloutTap: this.changeCommentStreamState.bind(this)
 
                         // (marker) => {
