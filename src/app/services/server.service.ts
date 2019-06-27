@@ -63,6 +63,7 @@ export class ServerService {
       return this.http.post(`${this.url}${this.ratingsEndpoint}`, { locationId })
         .subscribe(() => {
             console.log('successful post to DB of like rating');
+
         }, (error) => {
             console.log(error);
         })

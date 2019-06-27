@@ -21,7 +21,7 @@ const routes: Routes = [
     // { path: "items", component: ItemsComponent },
     // { path: "item/:id", component: ItemDetailComponent },
     { path: 'start', component: StartupComponent},
-    { path: '', component: AuthComponent},
+    { path: '', component: HomeComponent},
     { path: 'home', component: HomeComponent },
     { path: 'map', component: MapComponent },
     { path: 'rec', component: RecComponent },

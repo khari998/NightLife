@@ -77,6 +77,12 @@ export class MapComponent implements OnInit {
                 let lng = place.long || place.location.lng;
                 let subtitle = place.type || place.categories[0].name;
                 let id = place.id;
+                let icon: string;
+                if (place.rating_avg === 0 || place.rating_avg === null) {
+                    icon = "res://number_0";
+                } else if (place.rating_avg === 1) {
+                    icon = "res://number_1";
+                }
                 args.map.addMarkers([
                     {
                         id,
@@ -84,7 +90,7 @@ export class MapComponent implements OnInit {
                         lng,
                         title: place.name,
                         subtitle,
-                        icon: "res://number_0",
+                        icon,
                         onTap: this.changeCommentStreamState.bind(this),
                         onCalloutTap: () => {
                             console.log('callout tapped');
