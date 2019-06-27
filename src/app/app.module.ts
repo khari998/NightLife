@@ -1,9 +1,15 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
-// import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { ReactiveFormsModule } from '@angular/forms';
+import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
+import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
+// import { from } from "rxjs";
 
 import { AppRoutingModule } from "./app-routing.module";
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { AuthComponent } from "./components/auth/auth.component";
+import { SharedModule } from '../app/shared/shared.module';
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./components/home/home.component";
 import { MapComponent } from "./components/map/map.component";
@@ -25,15 +31,10 @@ import { MapCommentStreamComponent } from './components/map/map-comment-stream/m
 // import * as GooglePlaces from 'nativescript-plugin-google-places';
 // import { GuardiansComponent } from "./components/emer/guardians/guardians.component";
 
-
-
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
-import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
-import { NavbarComponent } from "./components/navbar/navbar.component";
-import { from } from "rxjs";
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -41,7 +42,10 @@ import { from } from "rxjs";
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptHttpClientModule,
-        NativeScriptFormsModule
+        NativeScriptUISideDrawerModule,
+        NativeScriptFormsModule,
+        ReactiveFormsModule,
+        SharedModule
     ],
     declarations: [
         AppComponent,
@@ -58,6 +62,7 @@ import { from } from "rxjs";
         GuardianDetailComponent,
         AddGuardianComponent,
         NavbarComponent,
+        AuthComponent,
         MapCommentStreamComponent,
         // TextFieldBindingComponent
     ],

@@ -14,12 +14,14 @@ import { VisitDetailComponent } from "./components/review/recentVisits/visit-det
 // import { ItemDetailComponent } from "./item/item-detail.component";
 import { GuardianDetailComponent } from './components/emer/guardians/guardian-detail.component';
 import { AddGuardianComponent } from './components/emer/guardians/addGuardian/add-guardian.component';
+import { AuthComponent } from "./components/auth/auth.component";
 
 const routes: Routes = [
     // { path: "", redirectTo: "/items", pathMatch: "full" },
     // { path: "items", component: ItemsComponent },
     // { path: "item/:id", component: ItemDetailComponent },
-    { path: '', component: StartupComponent},
+    { path: 'start', component: StartupComponent},
+    { path: '', component: AuthComponent},
     { path: 'home', component: HomeComponent },
     { path: 'map', component: MapComponent },
     { path: 'rec', component: RecComponent },
