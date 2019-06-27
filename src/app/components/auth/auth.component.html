@@ -7,7 +7,8 @@
       [ngClass]="{ invalid: !emailControlIsValid }"
     ></Label>
     <TextField
-      backgroundColor="darkgray"
+      backgroundColor="rgb(199, 115, 238)"
+      opacity="0.6"
       class="input"
       returnKeyType="next"
       keyboardType="email"
@@ -15,7 +16,9 @@
       autocapitalizationType="none"
       formControlName="email"
       #emailEl
-      height="30"
+      height="25"
+      borderRadius="25"
+      color="white"
     ></TextField>
     <Label
       *ngIf="!emailControlIsValid"
@@ -29,14 +32,17 @@
       [ngClass]="{ invalid: !passwordControlIsValid }"
     ></Label>
     <TextField
-      backgroundColor="darkgray"
-      height="35"
+      borderRadius="25"
+      backgroundColor="rgb(199, 115, 238)"
+      opacity="0.6"
+      height="25"
       class="input"
       returnKeyType="done"
       [autocorrect]="false"
       autocapitalizationType="none"
       [secure]="true"
-      hint="Min 6 characters"
+      hint="   Min 6 characters"
+      color="white"
       formControlName="password"
       (returnPress)="onDone()"
       #passwordEl

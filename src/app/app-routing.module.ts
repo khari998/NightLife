@@ -22,7 +22,7 @@ const routes: Routes = [
     // { path: "item/:id", component: ItemDetailComponent },
     { path: 'start', component: StartupComponent},
     { path: '', component: AuthComponent},
-    { path: 'home', component: HomeComponent },
+    { path: 'home', component: RecComponent },
     { path: 'map', component: MapComponent },
     { path: 'rec', component: RecComponent },
     { path: 'emer', component: EmerComponent },
