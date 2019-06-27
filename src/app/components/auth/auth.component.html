@@ -1,11 +1,13 @@
-<StackLayout class="form" [formGroup]="form">
-  <StackLayout class="input-field">
+<StackLayout class="form" [formGroup]="form" style="background-color: rgb(26, 47, 80)">
+  <StackLayout class="input-field" >
+    <Image src="~/app/icons/transparent.png" marginTop="20" ></Image>
     <Label
       class="label"
       text="E-Mail"
       [ngClass]="{ invalid: !emailControlIsValid }"
     ></Label>
-    <TextField 
+    <TextField
+      backgroundColor="darkgray"
       class="input"
       returnKeyType="next"
       keyboardType="email"
@@ -13,6 +15,7 @@
       autocapitalizationType="none"
       formControlName="email"
       #emailEl
+      height="30"
     ></TextField>
     <Label
       *ngIf="!emailControlIsValid"
@@ -26,6 +29,8 @@
       [ngClass]="{ invalid: !passwordControlIsValid }"
     ></Label>
     <TextField
+      backgroundColor="darkgray"
+      height="35"
       class="input"
       returnKeyType="done"
       [autocorrect]="false"
@@ -47,6 +52,7 @@
     (tap)="onSwitch()"
   ></Button>
   <Button
+    style="color: #AD4EDA; background-color: rgb(9, 125, 232)"
     [text]="isLogin ? 'Login' : 'Signup'"
     class="btn btn-primary btn-rounded-lg"
     (tap)="onSubmit()"
