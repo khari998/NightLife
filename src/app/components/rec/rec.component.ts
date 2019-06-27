@@ -27,7 +27,7 @@ export class RecComponent implements OnInit {
     }, (error) => {
         console.log(error);
     });
-
+console.log(this.location)
   }
 
   // need to make an HTTP request to server to give back data from /locations

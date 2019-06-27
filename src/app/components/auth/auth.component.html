@@ -1,6 +1,6 @@
 <StackLayout class="form" [formGroup]="form">
-  
-  
+
+<Image src="~/app/icons/logo.png"></Image>
   <StackLayout class="input-field" *ngIf="!isLogin">
     <Label class="label" text="First Name" ></Label>
     <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="words"
@@ -12,14 +12,16 @@
     <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="words"
       formControlName="lastname" #lastnameEl></TextField>
   </StackLayout>
-  
+
   <StackLayout class="input-field">
     <Label
       class="label"
       text="E-Mail"
       [ngClass]="{ invalid: !emailControlIsValid }"
     ></Label>
-    <TextField 
+    <TextField
+      backgroundColor="rgb(199, 115, 238)"
+      opacity="0.6"
       class="input"
       returnKeyType="next"
       keyboardType="email"
@@ -27,6 +29,9 @@
       autocapitalizationType="none"
       formControlName="email"
       #emailEl
+      height="25"
+      borderRadius="25"
+      color="white"
     ></TextField>
     <Label
       *ngIf="!emailControlIsValid"
@@ -41,12 +46,17 @@
       [ngClass]="{ invalid: !passwordControlIsValid }"
     ></Label>
     <TextField
+      borderRadius="25"
+      backgroundColor="rgb(199, 115, 238)"
+      opacity="0.6"
+      height="25"
       class="input"
       returnKeyType="done"
       [autocorrect]="false"
       autocapitalizationType="none"
       [secure]="true"
-      hint="Min 6 characters"
+      hint="   Min 6 characters"
+      color="white"
       formControlName="password"
       (returnPress)="onDone()"
       #passwordEl
@@ -63,6 +73,7 @@
     (tap)="onSwitch()"
   ></Button>
   <Button
+    style="color: #AD4EDA; background-color: rgb(9, 125, 232)"
     [text]="isLogin ? 'Login' : 'Signup'"
     class="btn btn-primary btn-rounded-lg"
     (tap)="onSubmit()"
@@ -71,5 +82,5 @@
   ></Button>
 
   <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
-  
+
 </StackLayout>
