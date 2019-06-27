@@ -32,8 +32,8 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: RouterExtensions) { }
 
-  signUp(email: string, password: string, name: string) {
-    this.http.post("/signup", { email: email, password: password, name: name })
+  signUp(email: string, password: string) {
+    // this.http.post("/signup", { email: email, password: password, name: name })
 
     return this.http.post<AuthResponseData>(
       `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${FIREBASE_API_KEY}`,
@@ -125,7 +125,7 @@ export class AuthService {
     userId: string,
     expiresIn: number
   ) {
-    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000); // remove '* 1000' to logout in 3.6 seconds for development
+    const expirationDate = new Date(new Date().getTime() + expiresIn); // remove '* 1000' to logout in 3.6 seconds for development
     const user = new User(email, userId, token, expirationDate);
     setString('userData', JSON.stringify(user));
     this.autoLogout(user.timeToExpiry)
