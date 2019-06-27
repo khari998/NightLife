@@ -52,6 +52,7 @@ export class ServerService {
 
 
 
+    icons = ['res://number_0', 'res://number_1', 'res://number_2', 'res://number_3', 'res://sunny']
 
   marker: any;
 

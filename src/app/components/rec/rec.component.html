@@ -1,9 +1,35 @@
 <StackLayout>
+
     <ActionBar title="Recommendation"></ActionBar>
     <Label
+    color="white"
     text="{{location.name}}"
     >
-    </Label>
-    <Label text="{{location.type}}"></Label>
-    <Label text="{{location.address}}"></Label>
+</Label>
+<Label     color="white"
+text="{{location.type}}"></Label>
+<Label     color="white"
+text="{{location.address}}"></Label>
+
+<Button class="btn" text="Refresh" [nsRouterLink]="['/rec']"></Button>
+<GridLayout>
+<Navbar row="1"></Navbar>
+
+</GridLayout>
 </StackLayout>
+<!-- <StackLayout orientation="vertical" class="m-x-auto">
+        <Image [src]="https://adc3ef35f321fe6e725a-fb8aac3b3bf42afe824f73b606f0aa4c.ssl.cf1.rackcdn.com/tenantlogos/4424.png" width="210"></Image>
+        <Label style="text-align: center" class="h2" >Panda Express</Label>
+        <Label style="text-align: center" class="body" >1050 Veterans Blvd</Label>
+         <Label style="text-align: center" class="h3; font-italic" textWrap="true"></Label> -->
+        <!-- <StackLayout class="hr-light m-10"></StackLayout>
+            <Label style="text-align: center" class="h4" text="Comments"></Label>
+            <StackLayout>
+            <Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments.name"></Label>
+            <Label style="text-align: center" class="h3 ; font-italic" textWrap="true" [text]="selected.comments.comment.join(' ')"></Label>
+            </StackLayout>
+            <StackLayout class="input-field ; m-x-5">
+            <TextField class="input" hint="Comments" returnKeyType="next" ngModel #comment="ngModel" required></TextField>
+            <Button text="Submit" marginTop="20" (tap)="onSubmit(comment.value)"></Button>
+        </StackLayout>
+</StackLayout> -->
