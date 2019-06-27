@@ -13,9 +13,10 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AuthComponent implements OnInit {
   form: FormGroup;
-  emailControlIsValid = true;
-  passwordControlIsValid = true;
-  isLogin = true;
+  emailControlIsValid: Boolean = true;
+  passwordControlIsValid: Boolean = true;
+  isLogin: Boolean = true;
+  isLoading: Boolean = false;
   @ViewChild('passwordEl', { static: false }) passwordEl: ElementRef<TextField>;
   @ViewChild('emailEl', { static: false }) emailEl: ElementRef<TextField>;
 
@@ -46,7 +47,7 @@ export class AuthComponent implements OnInit {
     this.emailEl.nativeElement.focus();
     this.passwordEl.nativeElement.focus();
     this.passwordEl.nativeElement.dismissSoftInput();
-    console.log(this.form.valid)
+
     if (!this.form.valid) {
       return;
     }
@@ -54,17 +55,35 @@ export class AuthComponent implements OnInit {
     const email = this.form.get('email').value;
     const password = this.form.get('password').value;
     console.log(email, password)
+
     this.form.reset();
+
     this.emailControlIsValid = true;
     this.passwordControlIsValid = true;
-
+    this.isLoading = true;
+    
     if (this.isLogin) {
-      console.log('Logging in...');
+      this.authService.login(email, password).subscribe(
+        (resData) => {
+          this.isLoading = false;
+          this.router.navigate(['/home'])
+        }, (error) => {
+          console.log("you have an error", error)
+          this.isLoading = false;
+        }
+      )
     } else {
-      this.authService.signUp(email, password);
+      this.authService.signUp(email, password).subscribe(
+        (resData) => {
+          this.isLoading = false;
+          this.router.navigate(['/home']);
+        }, (error) => {
+            this.isLoading = false;
+        }
+      );
     }
 
-    this.router.navigate(['/home']);
+    
 
   }
 
