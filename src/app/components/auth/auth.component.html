@@ -1,4 +1,18 @@
 <StackLayout class="form" [formGroup]="form">
+  
+  
+  <StackLayout class="input-field" *ngIf="!isLogin">
+    <Label class="label" text="First Name" ></Label>
+    <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="words"
+      formControlName="firstname" #firstnameEl></TextField>
+  </StackLayout>
+
+  <StackLayout class="input-field" *ngIf="!isLogin">
+    <Label class="label" text="Last Name" ></Label>
+    <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="words"
+      formControlName="lastname" #lastnameEl></TextField>
+  </StackLayout>
+  
   <StackLayout class="input-field">
     <Label
       class="label"
@@ -19,6 +33,7 @@
       text="Please enter a valid email."
     ></Label>
   </StackLayout>
+
   <StackLayout class="input-field">
     <Label
       class="label"
@@ -41,6 +56,7 @@
       text="Must be 6+ characters long."
     ></Label>
   </StackLayout>
+
   <Button
     class="btn btn-flat"
     [text]="isLogin ? 'Signup' : 'Login'"
@@ -53,5 +69,7 @@
     [isEnabled]="form.valid"
     *ngIf="!isLoading"
   ></Button>
+
   <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+  
 </StackLayout>
