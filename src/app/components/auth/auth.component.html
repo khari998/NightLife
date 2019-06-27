@@ -1,6 +1,6 @@
 <StackLayout class="form" [formGroup]="form">
 
-<Image src="~/app/icons/logo.png"></Image>
+<Image src="~/app/icons/transparent.png" height="250"></Image>
   <StackLayout class="input-field" *ngIf="!isLogin">
     <Label class="label" text="First Name" ></Label>
     <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="words"
@@ -73,7 +73,8 @@
     (tap)="onSwitch()"
   ></Button>
   <Button
-    style="color: #AD4EDA; background-color: rgb(9, 125, 232)"
+  class="btn"
+    style="background-color: rgb(121, 46, 156); color: rgb(9, 125, 232)"
     [text]="isLogin ? 'Login' : 'Signup'"
     class="btn btn-primary btn-rounded-lg"
     (tap)="onSubmit()"
