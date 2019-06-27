@@ -51,10 +51,12 @@ export class AuthComponent implements OnInit {
     if (!this.form.valid) {
       return;
     }
-
+    const firstName = this.form.get('firstname').value.trim();
+    const lastName = this.form.get('lastname').value.trim();
+    const fullName = firstName + " " + lastName;
     const email = this.form.get('email').value;
     const password = this.form.get('password').value;
-    console.log(email, password)
+    console.log(email, password, fullName, firstName, lastName)
 
     this.form.reset();
 
@@ -73,7 +75,7 @@ export class AuthComponent implements OnInit {
         }
       )
     } else {
-      this.authService.signUp(email, password).subscribe(
+      this.authService.signUp(email, password, fullName).subscribe(
         (resData) => {
           this.isLoading = false;
           this.router.navigate(['/home']);
