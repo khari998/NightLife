@@ -18,8 +18,8 @@ StackLayout {
 .btn {
     background-color: rgb(121, 44, 156);
     border-radius: 25%;
-    box-shadow: 4, 4, antiquewhite;
-    color: rgb(9, 125, 232);
+    box-shadow: 4, 4, 4, 4 antiquewhite;
+    color: white;
 }
 
 .list {
