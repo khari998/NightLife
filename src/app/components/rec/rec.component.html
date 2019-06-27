@@ -11,9 +11,10 @@ text="{{location.type}}"></Label>
 <Label     color="white"
 text="{{location.address}}"></Label>
 
-<Button class="btn" text="Refresh"></Button>
+<Button class="btn" text="Refresh" [nsRouterLink]="['/rec']"></Button>
 <GridLayout>
 <Navbar row="1"></Navbar>
+
 </GridLayout>
 </StackLayout>
 <!-- <StackLayout orientation="vertical" class="m-x-auto">
