@@ -79,15 +79,9 @@ export class MapComponent implements OnInit {
                 let id = place.id;
                 let icon: string;
                 if (place.rating_avg === 0 || place.rating_avg === null || place.rating_avg < 0) {
-                    icon = "res://number_0.png";
-                } else if (place.rating_avg === 1) {
-                    icon = "res://number_1.png";
-                } else if (place.rating_avg === 2) {
-                    icon = "res://number_2.png";
-                } else if (place.rating_avg === 3) {
-                    icon = "res://number_3.png";
+                    icon = "res://number_0";
                 } else {
-                    icon = "res://sunny.png";
+                    icon = "res://number_1";
                 }
                 args.map.addMarkers([
                     {
