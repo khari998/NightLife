@@ -50,7 +50,7 @@ export class MapComponent implements OnInit {
                     }
                 })
                 this.ref.detectChanges();
-                console.log(this.ServerService.currentLocation, this.ServerService.marker);
+                //console.log(this.ServerService.currentLocation, this.ServerService.marker);
             })
 
     };
