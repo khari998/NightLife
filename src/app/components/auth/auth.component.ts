@@ -37,7 +37,7 @@ export class AuthComponent implements OnInit {
         validators: [Validators.required, Validators.email]
       }),
       password: new FormControl(null, {
-        updateOn: 'blur',
+        updateOn: 'change',
         validators: [Validators.required, Validators.minLength(6)]
       })
     });
@@ -82,7 +82,7 @@ export class AuthComponent implements OnInit {
     } else {
       this.firstnameEl.nativeElement.focus();
       this.lastnameEl.nativeElement.focus();
-      
+
       const firstName = this.form.get('firstname').value.trim();
       const lastName = this.form.get('lastname').value.trim();
       const fullName = `${firstName} ${lastName}`;

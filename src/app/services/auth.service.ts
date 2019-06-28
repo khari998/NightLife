@@ -107,6 +107,7 @@ export class AuthService {
     if (loadedUser.isAuth) {
       this._user.next(loadedUser);
       this.autoLogout(loadedUser.timeToExpiry);
+      console.log(loadedUser.timeToExpiry);
       this.router.navigate(['/home'], { clearHistory: true });
       return of(true);
     }
@@ -124,6 +125,7 @@ export class AuthService {
 
   autoLogout(expiryDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => this.logout(), expiryDuration);
+    
   }
 
   private handleSignIn(
@@ -132,7 +134,7 @@ export class AuthService {
     userId: string,
     expiresIn: number
   ) {
-    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000); // remove '* 1000' to logout in 3.6 seconds for development
+    const expirationDate = new Date(new Date().getTime() + expiresIn); // remove '* 1000' to logout in 3.6 seconds for development
     const user = new User(email, userId, token, expirationDate);
     setString('userData', JSON.stringify(user));
     this.autoLogout(user.timeToExpiry)

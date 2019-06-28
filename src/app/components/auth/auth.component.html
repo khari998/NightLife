@@ -1,14 +1,19 @@
 <StackLayout class="form" [formGroup]="form">
 
-<Image src="~/app/icons/transparent.png" height="250"></Image>
+<Image src="~/app/icons/transparent.png" height="225"></Image>
   <StackLayout class="input-field" *ngIf="!isLogin">
     <Label class="label" text="First Name" ></Label>
     <TextField
       class="input"
+      opacity="0.6"
       returnKeyType="next"
       [autocorrect]="false"
+      backgroundColor="rgb(199, 115, 238)"
       autocapitalizationType="words"
       formControlName="firstname"
+      height="25"
+      borderRadius="25"
+      color="white"
       #firstnameEl
     ></TextField>
   </StackLayout>
@@ -17,10 +22,15 @@
     <Label class="label" text="Last Name" ></Label>
     <TextField 
       class="input"
+      opacity="0.6"
+      backgroundColor="rgb(199, 115, 238)"
       returnKeyType="next"
       [autocorrect]="false"
       autocapitalizationType="words"
       formControlName="lastname"
+      height="25"
+      borderRadius="25"
+      color="white"
       #lastnameEl
     ></TextField>
   </StackLayout>
