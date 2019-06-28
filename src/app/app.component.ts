@@ -44,17 +44,13 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         this.uiService.setRootVCRef(this.vcRef);
         this.authService.autoLogin().subscribe(success => console.log(success));
         this.socketIO.connect();
+        this.authService.autoLogin().subscribe(success => console.log("AutoLogin successful", success));
     }
 
     ngAfterViewInit() {
         this.drawer = this.drawerComponent.sideDrawer;
 
         this.changeDetectionRef.detectChanges();
-    }
-
-    onChallengeInput(challengeDescription: string) {
-        this.activeChallenge = challengeDescription;
-        console.log('onChallengeInput: ', challengeDescription);
     }
 
     onLogout() {

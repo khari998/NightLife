@@ -21,6 +21,7 @@ import { getCurrentLocation } from 'nativescript-geolocation';
     //         <Label style="text-align: center" class="h3; font-italic" textWrap="true" text="works"></Label>
     //             <Label style="text-align: center" class="h4" text="Comments"></Label>
     template: `
+<<<<<<< HEAD
     <ActionBar [title]="location.name"></ActionBar>
     <!--StackLayout>
     <!--Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments.name"></Label-->
@@ -49,6 +50,25 @@ import { getCurrentLocation } from 'nativescript-geolocation';
                 </GridLayout>
                 `
                 // </StackLayout>
+=======
+        <StackLayout orientation="vertical" class="m-x-auto">
+            <Image [src]="selected.src" width="210"></Image>
+            <Label style="text-align: center" class="h2" [text]="selected.city"></Label>
+            <Label style="text-align: center" class="body" [text]="selected.address"></Label>
+            <Label style="text-align: center" class="h3; font-italic" textWrap="true" [text]="'- ' + selected.description"></Label>
+            <StackLayout class="hr-light m-10"></StackLayout>
+                <Label style="text-align: center" class="h4" text="Comments"></Label>
+                <StackLayout>
+                <Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments.name"></Label>
+                <Label style="text-align: center" class="h3 ; font-italic" textWrap="true" [text]="selected.comments.comment.join(' ')"></Label>
+                </StackLayout>
+                <StackLayout class="input-field ; m-x-5">
+                <TextField class="input" hint="Comments" returnKeyType="next" ngModel #comment="ngModel" required></TextField>
+                <Button text="Submit" marginTop="20" (tap)="onSubmit(comment.value)"></Button>
+                </StackLayout>
+        </StackLayout>
+    `
+>>>>>>> faa3944b3352ca4e0d3328d6e433d55e4eceb8d3
 })
 
 export class VisitDetailComponent implements OnInit {

@@ -22,12 +22,10 @@ export class RecComponent implements OnInit {
     this.ServerService.getLocations()
     .subscribe((data) => {
         this.locations = data;
-        console.log(data);
         this.location = this.locations[Math.floor(Math.random() * this.locations.length)]
     }, (error) => {
         console.log(error);
     });
-console.log(this.location)
   }
 
   // need to make an HTTP request to server to give back data from /locations

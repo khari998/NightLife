@@ -22,6 +22,7 @@ export class ServerService {
     smsEndpoint: string = '/sms';
     sosMessage: string = `*Current User* has indicated they are experiencing an emergency. Please contact them and / or the authorities`;
 
+    renderCommentStream: boolean = false;
 
     getLocations() {
         return this.http.get(`${this.url}${this.endpoint}`)
@@ -65,7 +66,7 @@ export class ServerService {
 
 
 
-    icons = ['res://number_0', 'res://number_1', 'res://number_2', 'res://number_3', 'res://sunny']
+    icons = ['res://number_0', 'res://number_1', 'https://omarrashid2.github.io/number_2.png', 'https://omarrashid2.github.io/number_3.png', 'https://omarrashid2.github.io/sunny.png']
 
   marker: any;
 

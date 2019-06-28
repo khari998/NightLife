@@ -11,6 +11,7 @@ import {
   remove
 } from 'tns-core-modules/application-settings';
 
+import { serverURL } from "../../../config"
 import { FIREBASE_API_KEY } from "../../../config";
 import { User } from '../../app/components/auth/user.model';
 
@@ -32,9 +33,8 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: RouterExtensions) { }
 
-  signUp(email: string, password: string) {
-    // this.http.post("/signup", { email: email, password: password, name: name })
-
+  signUp(email: string, password: string, name: string) {
+    
     return this.http.post<AuthResponseData>(
       `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${FIREBASE_API_KEY}`,
       { email: email, password: password, returnSecureToken: true }
@@ -44,6 +44,7 @@ export class AuthService {
         return throwError(errorRes);
       }),
       tap(resData => {
+        console.log("Adding Token")
         if (resData && resData.idToken) {
           this.handleSignIn(
             email,
@@ -52,6 +53,12 @@ export class AuthService {
             parseInt(resData.expiresIn)
           );
         }
+        const endpoint = '/signup';
+        return this.http.post(`${serverURL}${endpoint}`, { email, name }).subscribe(
+          (data) => console.log(data),
+          (error) => console.error(error)
+        )
+
       })
     );
   }
@@ -78,19 +85,6 @@ export class AuthService {
     )
   }
 
-  autoLogout(expiryDuration: number) {
-    this.tokenExpirationTimer = setTimeout(() => this.logout(), expiryDuration);
-  }
-
-  logout() {
-    this._user.next(null);
-    remove('userData');
-    if (this.tokenExpirationTimer) {
-      clearTimeout(this.tokenExpirationTimer);
-    }
-    this.router.navigate(['/'], { clearHistory: true });
-  }
-
   autoLogin() {
     if (!hasKey('userData')) {
       return of(false);
@@ -108,16 +102,31 @@ export class AuthService {
       userData._token,
       new Date(userData._tokenExpirationDate)
     );
+    
 
     if (loadedUser.isAuth) {
       this._user.next(loadedUser);
       this.autoLogout(loadedUser.timeToExpiry);
+      console.log(loadedUser.timeToExpiry);
       this.router.navigate(['/home'], { clearHistory: true });
       return of(true);
     }
     return of(false);
   }
 
+  logout() {
+    this._user.next(null);
+    remove('userData');
+    if (this.tokenExpirationTimer) {
+      clearTimeout(this.tokenExpirationTimer);
+    }
+    this.router.navigate(['/'], { clearHistory: true });
+  }
+
+  autoLogout(expiryDuration: number) {
+    this.tokenExpirationTimer = setTimeout(() => this.logout(), expiryDuration);
+    
+  }
 
   private handleSignIn(
     email: string,
@@ -125,7 +134,7 @@ export class AuthService {
     userId: string,
     expiresIn: number
   ) {
-    const expirationDate = new Date(new Date().getTime() + expiresIn); // remove '* 1000' to logout in 3.6 seconds for development
+    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000); // remove '* 1000' to logout in 3.6 seconds for development
     const user = new User(email, userId, token, expirationDate);
     setString('userData', JSON.stringify(user));
     this.autoLogout(user.timeToExpiry)
@@ -153,5 +162,5 @@ export class AuthService {
         alert("Authentication failed, check your credentials.");
     }
   }
-  
+
 };
