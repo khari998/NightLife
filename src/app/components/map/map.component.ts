@@ -30,7 +30,8 @@ export class MapComponent implements OnInit {
     your_token = mapboxAPI;
     nolaData;
     renderCommentStream = false;
-    map: any
+    map: any;
+    mapC = this;
 
     // public removeMarker(locationId) {
     //     //this.map.args.removeMarker([locationId]);
@@ -38,8 +39,9 @@ export class MapComponent implements OnInit {
     // }
 
     changeCommentStreamState(marker) {
+        console.log('clickady do da')
         this.ServerService.marker = marker;
-        this.renderCommentStream = !this.renderCommentStream
+        this.ServerService.renderCommentStream = !this.ServerService.renderCommentStream
         this.ServerService.getLocations()
             .subscribe((data: Array<any>) => {
 
@@ -80,8 +82,14 @@ export class MapComponent implements OnInit {
                 let icon: string;
                 if (place.rating_avg === 0 || place.rating_avg === null || place.rating_avg < 0) {
                     icon = "res://number_0";
-                } else {
+                } else if (place.rating_avg === 1) {
                     icon = "res://number_1";
+                } else if (place.rating_avg === 2) {
+                    icon = "https://omarrashid2.github.io/number_2.png";
+                } else if (place.rating_avg === 3) {
+                    icon = "https://omarrashid2.github.io/number_3.png";
+                } else {
+                    icon = "https://omarrashid2.github.io/sunny.png";
                 }
                 args.map.addMarkers([
                     {
