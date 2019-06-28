@@ -52,8 +52,7 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit() {
-    this.firstnameEl.nativeElement.focus();
-    this.lastnameEl.nativeElement.focus();
+    
     this.emailEl.nativeElement.focus();
     this.passwordEl.nativeElement.focus();
     this.passwordEl.nativeElement.dismissSoftInput();
@@ -81,6 +80,8 @@ export class AuthComponent implements OnInit {
       )
       this.form.reset();
     } else {
+      this.firstnameEl.nativeElement.focus();
+      this.lastnameEl.nativeElement.focus();
       
       const firstName = this.form.get('firstname').value.trim();
       const lastName = this.form.get('lastname').value.trim();
@@ -95,8 +96,6 @@ export class AuthComponent implements OnInit {
       );
       this.form.reset();
     }
-
-    
 
   }
 
