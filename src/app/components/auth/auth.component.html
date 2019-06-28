@@ -1,16 +1,29 @@
 <StackLayout class="form" [formGroup]="form">
 
-<Image src="~/app/icons/logo.png"></Image>
+  <Image src="~/app/icons/logo.png"></Image>
+  
   <StackLayout class="input-field" *ngIf="!isLogin">
     <Label class="label" text="First Name" ></Label>
-    <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="words"
-      formControlName="firstname" #firstnameEl></TextField>
+    <TextField
+      class="input"
+      returnKeyType="next"
+      [autocorrect]="false"
+      autocapitalizationType="words"
+      formControlName="firstname"
+      #firstnameEl
+    ></TextField>
   </StackLayout>
 
   <StackLayout class="input-field" *ngIf="!isLogin">
     <Label class="label" text="Last Name" ></Label>
-    <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="words"
-      formControlName="lastname" #lastnameEl></TextField>
+    <TextField 
+      class="input"
+      returnKeyType="next"
+      [autocorrect]="false"
+      autocapitalizationType="words"
+      formControlName="lastname"
+      #lastnameEl
+    ></TextField>
   </StackLayout>
 
   <StackLayout class="input-field">

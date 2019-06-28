@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { TextField } from 'tns-core-modules/ui/text-field';
@@ -19,11 +19,19 @@ export class AuthComponent implements OnInit {
   isLoading: Boolean = false;
   @ViewChild('passwordEl', { static: false }) passwordEl: ElementRef<TextField>;
   @ViewChild('emailEl', { static: false }) emailEl: ElementRef<TextField>;
+  @ViewChild('firstnameEl', { static: false }) firstnameEl: ElementRef<TextField>;
+  @ViewChild('lastnameEl', { static: false }) lastnameEl: ElementRef<TextField>;
 
   constructor(private router: RouterExtensions, private authService: AuthService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
+      firstname: new FormControl(null, {
+        updateOn: 'blur', // experiment with change instead of blur
+      }),
+      lastname: new FormControl(null, {
+        updateOn: 'blur',
+      }),
       email: new FormControl(null, {
         updateOn: 'blur',
         validators: [Validators.required, Validators.email]
@@ -44,22 +52,19 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit() {
+    this.firstnameEl.nativeElement.focus();
+    this.lastnameEl.nativeElement.focus();
     this.emailEl.nativeElement.focus();
     this.passwordEl.nativeElement.focus();
     this.passwordEl.nativeElement.dismissSoftInput();
-
+    
     if (!this.form.valid) {
       return;
     }
-    // const firstName = this.form.get('firstname').value.trim();
-    // const lastName = this.form.get('lastname').value.trim();
-    // const fullName = firstName + " " + lastName;
+
     const email = this.form.get('email').value;
     const password = this.form.get('password').value;
-    console.log(email, password)
-
-    this.form.reset();
-
+    
     this.emailControlIsValid = true;
     this.passwordControlIsValid = true;
     this.isLoading = true;
@@ -74,8 +79,13 @@ export class AuthComponent implements OnInit {
           this.isLoading = false;
         }
       )
+      this.form.reset();
     } else {
-      this.authService.signUp(email, password).subscribe(
+      
+      const firstName = this.form.get('firstname').value.trim();
+      const lastName = this.form.get('lastname').value.trim();
+      const fullName = `${firstName} ${lastName}`;
+      this.authService.signUp(email, password, fullName).subscribe(
         (resData) => {
           this.isLoading = false;
           this.router.navigate(['/home']);
@@ -83,6 +93,7 @@ export class AuthComponent implements OnInit {
             this.isLoading = false;
         }
       );
+      this.form.reset();
     }
 
     

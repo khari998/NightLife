@@ -32,8 +32,10 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: RouterExtensions) { }
 
-  signUp(email: string, password: string) {
-    // this.http.post("/signup", { email: email, password: password, name: name })
+  signUp(email: string, password: string, name: string) {
+    console.log(name)
+    this.http.post("/signup", { email, password, name })
+    
 
     return this.http.post<AuthResponseData>(
       `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${FIREBASE_API_KEY}`,
@@ -78,19 +80,6 @@ export class AuthService {
     )
   }
 
-  autoLogout(expiryDuration: number) {
-    this.tokenExpirationTimer = setTimeout(() => this.logout(), expiryDuration);
-  }
-
-  logout() {
-    this._user.next(null);
-    remove('userData');
-    if (this.tokenExpirationTimer) {
-      clearTimeout(this.tokenExpirationTimer);
-    }
-    this.router.navigate(['/'], { clearHistory: true });
-  }
-
   autoLogin() {
     if (!hasKey('userData')) {
       return of(false);
@@ -108,6 +97,7 @@ export class AuthService {
       userData._token,
       new Date(userData._tokenExpirationDate)
     );
+    
 
     if (loadedUser.isAuth) {
       this._user.next(loadedUser);
@@ -118,6 +108,18 @@ export class AuthService {
     return of(false);
   }
 
+  logout() {
+    this._user.next(null);
+    remove('userData');
+    if (this.tokenExpirationTimer) {
+      clearTimeout(this.tokenExpirationTimer);
+    }
+    this.router.navigate(['/'], { clearHistory: true });
+  }
+
+  autoLogout(expiryDuration: number) {
+    this.tokenExpirationTimer = setTimeout(() => this.logout(), expiryDuration);
+  }
 
   private handleSignIn(
     email: string,
@@ -125,7 +127,7 @@ export class AuthService {
     userId: string,
     expiresIn: number
   ) {
-    const expirationDate = new Date(new Date().getTime() + expiresIn); // remove '* 1000' to logout in 3.6 seconds for development
+    const expirationDate = new Date(new Date().getTime() + expiresIn * 1); // remove '* 1000' to logout in 3.6 seconds for development
     const user = new User(email, userId, token, expirationDate);
     setString('userData', JSON.stringify(user));
     this.autoLogout(user.timeToExpiry)
