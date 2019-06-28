@@ -10,7 +10,6 @@ import { ActivatedRoute } from '@angular/router';
 
     // selector: 'ns-visited',
     template: `
-    <ActionBar [title]="selected.venue"></ActionBar>
         <StackLayout orientation="vertical" class="m-x-auto">
             <Image [src]="selected.src" width="210"></Image>
             <Label style="text-align: center" class="h2" [text]="selected.city"></Label>

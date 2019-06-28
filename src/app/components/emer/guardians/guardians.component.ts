@@ -11,7 +11,6 @@ class Guardian {
 @Component({
     selector: 'ns-guardians-list',
     template: `
-        <ActionBar title="Guardians"></ActionBar>
         <ListView height="350" [items]="guardians" class="list-group" (itemTap)="onSelect($event)">
             <ng-template let-item="item">
                 <StackLayout class="list-group-item">

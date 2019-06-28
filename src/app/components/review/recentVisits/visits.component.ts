@@ -11,9 +11,8 @@ import { Router } from "@angular/router";
 
     selector: 'ns-visited-list',
     template: `
-    <ActionBar title="Recently Visited"></ActionBar>
     <GridLayout col="0" class="left-column">
-
+    
     <!-- The ListView shows on both tablets and phones. On tablets the list occupies the left-hand side
     of the screen, and one phones the ListView takes up the whole screen. -->
     <ListView class="list-group" [items]="spots" (itemTap)="select($event)">
