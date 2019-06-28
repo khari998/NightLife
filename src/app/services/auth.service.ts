@@ -33,10 +33,8 @@ export class AuthService {
   constructor(private http: HttpClient, private router: RouterExtensions) { }
 
   signUp(email: string, password: string, name: string) {
-    console.log(name)
     this.http.post("/signup", { email, password, name })
     
-
     return this.http.post<AuthResponseData>(
       `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${FIREBASE_API_KEY}`,
       { email: email, password: password, returnSecureToken: true }
