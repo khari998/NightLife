@@ -50,6 +50,19 @@ export class ServerService {
         return this.http.get(`${this.url}${this.commentEndpoint}`)
     }
 
+    postComments(locationId, text) {
+        return this.http.post(`${this.url}${this.commentEndpoint}`, {
+            locationId,
+            text,
+            userId: 0,
+        }).subscribe(data => {
+            console.log(data)
+        },
+            error => {
+                console.log(error) })
+
+    }
+
 
 
     icons = ['res://number_0', 'res://number_1', 'res://number_2', 'res://number_3', 'res://sunny']
