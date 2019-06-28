@@ -10,6 +10,7 @@ import { ServerService } from '~/app/services/server.service';
 })
 export class MapCommentStreamComponent implements OnInit {
     @Input() public map
+    @Input() public changeState
 
   constructor(public ServerService: ServerService) { }
 
@@ -31,7 +32,8 @@ export class MapCommentStreamComponent implements OnInit {
           this.comments = data;
           //console.log(this.comments);
       })
-      console.log(this.ServerService.currentLocation);
+    //   console.log(this.changeState)
+    //   console.log(this.ServerService.currentLocation);
   }
 
   hotTap(locationId) {
@@ -64,6 +66,7 @@ export class MapCommentStreamComponent implements OnInit {
         icon,
         onTap: () => {
             // this needs to be old onTap function
+            // console.log(changeState)
             console.log('tapped');
         },
         onCalloutTap: () => {
