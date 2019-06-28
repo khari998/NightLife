@@ -1,7 +1,7 @@
 <StackLayout>
         <ActionBar title="NiteLyfe"></ActionBar>
-    <StackLayout visibility="{{renderCommentStream ? 'visible' : 'collapsed'}}">
-        <ns-map-comment-stream [map]="map"></ns-map-comment-stream>
+    <StackLayout visibility="{{ServerService.renderCommentStream ? 'visible' : 'collapsed'}}">
+        <ns-map-comment-stream [map]="map" [mapC]="mapC"></ns-map-comment-stream>
     </StackLayout>
     <ContentView height="100%" width="100%">
         <Mapbox [accessToken]="your_token" mapStyle="dark" latitude="29.95465" longitude="-90.07507"
