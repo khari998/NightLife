@@ -13,6 +13,7 @@ import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 
 import { UIService } from '../app/shared/ui.service';
 import { AuthService } from '../app/services/auth.service';
+import { SocketIO } from 'nativescript-socketio';
 
 @Component({
     selector: 'ns-app',
@@ -29,7 +30,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         private uiService: UIService,
         private changeDetectionRef: ChangeDetectorRef,
         private vcRef: ViewContainerRef,
-        private authService: AuthService
+        private authService: AuthService,
+        private socketIO: SocketIO,
+
     ) { }
 
     ngOnInit() {
@@ -39,6 +42,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             }
         });
         this.uiService.setRootVCRef(this.vcRef);
+        this.authService.autoLogin().subscribe(success => console.log(success));
+        this.socketIO.connect();
         this.authService.autoLogin().subscribe(success => console.log("AutoLogin successful", success));
     }
 
@@ -57,5 +62,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.drawerSub) {
             this.drawerSub.unsubscribe();
         }
+        this.socketIO.disconnect();
     }
 }

@@ -4,6 +4,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
+import { SocketIOModule } from "nativescript-socketio/angular";
 // import { from } from "rxjs";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -24,6 +25,10 @@ import { PlaceItemComponent } from "./components/map/place-item/place-item.compo
 import { GuardianDetailComponent } from "./components/emer/guardians/guardian-detail.component";
 import { AddGuardianComponent } from './components/emer/guardians/addGuardian/add-guardian.component'
 import { MapCommentStreamComponent } from './components/map/map-comment-stream/map-comment-stream.component';
+
+const server = 'https://5a52fb8f.ngrok.io';
+// import { SocketIO } from "nativescript-socketio";
+
 // import { TextFieldBindingComponent } from './components/textfield.component';
 // import * as platform from "tns-core-modules/platform";
 // declare var GMSServices: any;
@@ -45,7 +50,8 @@ import { MapCommentStreamComponent } from './components/map/map-comment-stream/m
         NativeScriptUISideDrawerModule,
         NativeScriptFormsModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        SocketIOModule.forRoot(server),
     ],
     declarations: [
         AppComponent,
