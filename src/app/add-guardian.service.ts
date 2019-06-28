@@ -21,7 +21,7 @@ phoneNumber:`15044106484`;
 
 url: string = serverURL;
 endpoint: string = '/sms';
-
+addEnd: string = '/addGuardian';
 sosMessage = `*Current User* has indicated they are experiencing an emergency. Please contact them and / or the authorities`;
 
 currentGuardians = [
@@ -47,21 +47,15 @@ currentGuardians = [
         console.log(this.newGuardianName, this.newGuardianPhone)
         this.currentGuardians.push({ name: this.newGuardianName, phone: this.newGuardianPhone })
         this.extension.backToPreviousPage();
+
+        return this.http.post(`${this.url}${this.addEnd}`, { name: this.newGuardianName, phone: this.newGuardianPhone })
+        .subscribe( data => {
+            console.log(data)
+        },
+        error => {
+            console.log(error)
+        })
     }
 
-    // create function for SOS feature
-    // return this.http.post
-        // 1st param is url
-        // ngrok https
-        // 2nd param body
 
-    // activateSOS() {
-    //     const { name, phone } = this.currentGuardians[0];
-    //     // const smsEndpoint = `/sms`;
-
-    //     // console.log(`${name}'s number is ${phone}. ${this.sosMessage}`)
-    //     console.log(`${this.url}${this.endpoint}`)
-    //     return this.http.get(`${this.url}${this.endpoint}`);
-
-    // }
 }
