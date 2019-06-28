@@ -61,7 +61,8 @@ export class MapCommentStreamComponent implements OnInit {
           })
           //console.log(this.comments);
       })
-      console.log(this.ServerService.currentLocation);
+    //   console.log(this.changeState)
+    //   console.log(this.ServerService.currentLocation);
   }
 
   hotTap(locationId) {

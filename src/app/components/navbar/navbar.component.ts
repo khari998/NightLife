@@ -34,11 +34,11 @@ export class NavbarComponent implements OnInit {
     let previousTab = this.selectedTab;
     if (index != this.selectedTab) {
       this.selectedTab = index;
-      this.tabHighlight.nativeElement.animate({
-        translate: { x: index * screen.mainScreen.widthDIPs / 5, y: 0 },
-        // curve: AnimationCurve.cubicBezier(1, .02, .45, .93),
-        duration: 300
-      })
+    //   this.tabHighlight.nativeElement.animate({
+    //     translate: { x: index * screen.mainScreen.widthDIPs / 5, y: 0 },
+    //     // curve: AnimationCurve.cubicBezier(1, .02, .45, .93),
+    //     duration: 300
+    //   })
       this.animateCurrentImage(this.getImage(index));
       this.animatePreviousImage(this.getImage(previousTab));
       // this.tabSelected.emit(this.selectedTab);
