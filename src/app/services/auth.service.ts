@@ -11,6 +11,7 @@ import {
   remove
 } from 'tns-core-modules/application-settings';
 
+import { serverURL } from "../../../config"
 import { FIREBASE_API_KEY } from "../../../config";
 import { User } from '../../app/components/auth/user.model';
 
@@ -33,7 +34,6 @@ export class AuthService {
   constructor(private http: HttpClient, private router: RouterExtensions) { }
 
   signUp(email: string, password: string, name: string) {
-    this.http.post("/signup", { email, password, name })
     
     return this.http.post<AuthResponseData>(
       `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${FIREBASE_API_KEY}`,
@@ -44,6 +44,7 @@ export class AuthService {
         return throwError(errorRes);
       }),
       tap(resData => {
+        console.log("Adding Token")
         if (resData && resData.idToken) {
           this.handleSignIn(
             email,
@@ -52,6 +53,12 @@ export class AuthService {
             parseInt(resData.expiresIn)
           );
         }
+        const endpoint = '/signup';
+        return this.http.post(`${serverURL}${endpoint}`, { email, name }).subscribe(
+          (data) => console.log(data),
+          (error) => console.error(error)
+        )
+
       })
     );
   }
