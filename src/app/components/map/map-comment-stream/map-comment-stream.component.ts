@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { ServerService } from '~/app/services/server.service';
 
 
@@ -9,9 +9,13 @@ import { ServerService } from '~/app/services/server.service';
   moduleId: module.id,
 })
 export class MapCommentStreamComponent implements OnInit {
-    @Input() public map
+    @Input() public map;
+    @Input() public mapC;
 
-  constructor(public ServerService: ServerService) { }
+  constructor(
+      public ServerService: ServerService,
+    private ref: ChangeDetectorRef
+    ) { }
 
   comments: any = [];
 
@@ -24,6 +28,23 @@ export class MapCommentStreamComponent implements OnInit {
   addMarker(mappy, data) {
       mappy.addMarkers(data);
   }
+
+  commentStream2(marker) {
+    console.log('close bitch');
+    this.ServerService.marker = marker;
+    this.ServerService.renderCommentStream = !this.ServerService.renderCommentStream;
+          this.ServerService.getLocations()
+              .subscribe((data: Array<any>) => {
+                  data.forEach(location => {
+                      // set current location on service to location that matches marker lat and long
+                      if (marker.lat === location.lat && marker.lng === location.long) {
+                          this.ServerService.currentLocation = location;
+                      }
+                  })
+                  this.mapC.ref.detectChanges();
+                })
+
+  };
 
   ngOnInit() {
       this.ServerService.getComments()
@@ -62,10 +83,7 @@ export class MapCommentStreamComponent implements OnInit {
         title: this.ServerService.currentLocation.name,
         subtitle: this.ServerService.currentLocation.type,
         icon,
-        onTap: () => {
-            // this needs to be old onTap function
-            console.log('tapped');
-        },
+        onTap: this.commentStream2.bind(this),
         onCalloutTap: () => {
             console.log('tapped');
         }
