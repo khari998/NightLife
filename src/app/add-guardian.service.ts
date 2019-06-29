@@ -33,12 +33,12 @@ currentGuardians = [
   constructor(private extension: RouterExtensions, public http: HttpClient) { }
 
     nameOnChange(input) {
-        // console.log(input)
+        console.log(input)
         this.newGuardianName = input.value;
     }
 
     phoneOnChange(input) {
-        // console.log(input)
+        console.log(input)
         this.newGuardianPhone = input.value;
 
     }
