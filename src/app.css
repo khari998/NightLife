@@ -31,7 +31,8 @@ StackLayout {
 
 Label {
     color: white;
-    font-size: 21px;
+    font-size: 20px;
+    text-align: center;
 }
 
 ListView {

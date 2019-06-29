@@ -33,10 +33,20 @@ import { getCurrentLocation } from 'nativescript-geolocation';
     <!--GridLayout columns="2*,*" rows = "auto,auto, *" class="page">
     </GridLayout-->
     <StackLayout>
-        <Label [text]="location.name"></Label>
+    <Image src="~/app/icons/soloLogo.png" height="40" [nsRouterLink]="['/home']" marginTop="10" marginBottom="20"></Image>
+    <Label [text]="location.name" color="rgb(9, 125, 232)"></Label>
         <Label [text]="location.type"></Label>
-        <Label [text]="location.address"></Label>
-    <TextField #messageEl hint="Enter text" row="1"></TextField>
+        <Label [text]="location.address" marginBottom="20"></Label>
+    <TextField #messageEl hint="Enter text" row="1" class="input"
+    opacity="0.6"
+    returnKeyType="next"
+    [autocorrect]="false"
+    backgroundColor="rgb(199, 115, 238)"
+    autocapitalizationType="words"
+    formControlName="firstname"
+    height="25"
+    borderRadius="25"
+    color="white"></TextField>
     <Button col="1" text="Add" (tap)="sendText(messageEl.text)" row="1"></Button>
     <ListView id="lv" [items]="list" colSpan="2" row="2" class="list-group">
     <ng-template let-item="item">
@@ -102,7 +112,9 @@ export class VisitDetailComponent implements OnInit {
                     if (this.list.length !== data.length) {
                         let messages = data;
                         for (let i = 0; i < messages.length; i++) {
-                            this.list.push(messages[i]);
+                            if (messages[i].locationId === this.location.id) {
+                                this.list.push(messages[i]);
+                            }
                         }
                     }
                     console.log(JSON.stringify(data));
