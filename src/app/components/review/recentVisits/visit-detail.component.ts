@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { ServerService } from '../../../services/server.service';
 import { getCurrentLocation } from 'nativescript-geolocation';
+import { AuthService } from '~/app/services/auth.service';
 
 
 @Component({
@@ -43,6 +44,7 @@ export class VisitDetailComponent implements OnInit {
         public socketIO: SocketIO,
         public ngZone: NgZone,
         public serverService: ServerService,
+        public AuthService: AuthService
     ) {
         this.route.queryParams.subscribe(params => {
             this.location = JSON.parse(params["location"]);
@@ -105,7 +107,7 @@ export class VisitDetailComponent implements OnInit {
         };
 
 
-        this.serverService.postComments(data.locationId, data.message)
+        this.serverService.postComments(data.locationId, data.message, this.AuthService.userObj.id)
 
         this.socketIO.emit('new message', data, wasReceived => {
             this.ngZone.run(() => {
