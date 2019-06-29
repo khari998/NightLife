@@ -1,23 +1,28 @@
 <StackLayout>
-    <ns-action-bar title="Add Comment"></ns-action-bar>
+    <ns-action-bar title="Tonight's Spot"></ns-action-bar>
     <!-- <ns-action-bar title="Recommendation"></ns-action-bar> -->
     <!-- <ActionBar title="Recommendation"></ActionBar> -->
-    <Image src="~/app/icons/soloLogo.png" height="40" marginTop="10" marginBottom="25"></Image>
-    <Label
-    color="white"
-    text="{{location.name}}"
-    >
-</Label>
-<Label color="white"
-text="{{location.type}}"></Label>
-<Label     color="white"
-text="{{location.address}}"></Label>
+    <Image src="~/app/icons/soloLogo.png" height="40" [nsRouterLink]="['/home']" marginTop="10" marginBottom="20"></Image>
+    <StackLayout>
 
-<Button class="btn" text="Refresh" (tap)="this.ngOnInit()"></Button>
-<GridLayout>
-<Navbar row="1"></Navbar>
+        <Label
+        class="locName"
+        text="{{location.name}}"
+        textWrap="true"
+        >
+    </Label>
+    <Label     color="white"
+    text="{{location.address}}"></Label>
+    <Label color="white"
+    fontSize="18"
+    text="{{location.type}}"></Label>
+</StackLayout>
 
-</GridLayout>
+    <Button class="btn" text="Refresh" (tap)="this.ngOnInit()" marginTop="200"></Button>
+    <GridLayout>
+        <Navbar row="1"></Navbar>
+
+    </GridLayout>
 </StackLayout>
 <!-- <StackLayout orientation="vertical" class="m-x-auto">
         <Image [src]="https://adc3ef35f321fe6e725a-fb8aac3b3bf42afe824f73b606f0aa4c.ssl.cf1.rackcdn.com/tenantlogos/4424.png" width="210"></Image>

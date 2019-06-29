@@ -14,11 +14,11 @@ import { AuthService } from '~/app/services/auth.service';
     selector: 'ns-visited-list',
     // templateUrl: './visits.component.html'
     template: `
-    <Image src="~/app/icons/soloLogo.png" height="40" marginTop="10" marginBottom="20"></Image>
+    <Image src="~/app/icons/soloLogo.png" height="40" [nsRouterLink]="['/home']" marginTop="10" marginBottom="20"></Image>
     <ListView [items]="locations" class="list-group" (itemTap)="select($event)">
-    <ng-template let-item="item">
-    <StackLayout class="list-group-item">
-        <Label [text]="item.name"></Label>
+    <ng-template let-item="item" >
+    <StackLayout class="list-group-item" >
+        <Label [text]="item.name" textWrap="true"></Label>
         </StackLayout>
         </ng-template>
     </ListView>

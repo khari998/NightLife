@@ -52,22 +52,22 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit() {
-    
+
     this.emailEl.nativeElement.focus();
     this.passwordEl.nativeElement.focus();
     this.passwordEl.nativeElement.dismissSoftInput();
-    
+
     if (!this.form.valid) {
       return;
     }
 
     const email = this.form.get('email').value;
     const password = this.form.get('password').value;
-    
+
     this.emailControlIsValid = true;
     this.passwordControlIsValid = true;
     this.isLoading = true;
-    
+
     if (this.isLogin) {
       this.authService.login(email, password).subscribe(
         (resData) => {

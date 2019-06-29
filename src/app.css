@@ -31,9 +31,16 @@ StackLayout {
 
 Label {
     color: white;
-    font-size: 21px;
+    font-size: 20px;
+    text-align: center;
 }
 
 ListView {
     color: rgb(121, 44, 156);
+}
+
+.locName {
+    font-size: 25px;
+    margin-top: 50px;
+    color: rgb(9, 125, 232);
 }
