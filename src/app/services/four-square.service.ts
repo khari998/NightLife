@@ -26,7 +26,6 @@ export class FourSquareService {
   }
 
   getLocationData(): any {
-      // make API call to foursquare
       return this.http.get(this.url, {
           params: {
               client_id: clientFS,
@@ -42,11 +41,6 @@ export class FourSquareService {
 
   postLocationData(arr) {
     return this.http.post(`${this.serverUrl}${this.endpont}`, arr)
-        // .subscribe(() => {
-        //     console.log("called")
-        // }, (error) => {
-        //     console.log(error);
-        // })
   }
 
 

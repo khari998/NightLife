@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from "@angular/router";
 import { ServerService } from '../../../services/server.service';
+import { AuthService } from '~/app/services/auth.service';
 
 // class RecentVisits {
 //     constructor(public id: number, public venue: string, public city: string) {
@@ -47,6 +48,7 @@ export class VisitsComponent implements OnInit {
         private router: Router,
         public serverService: ServerService,
         private ref: ChangeDetectorRef,
+        public AuthService: AuthService,
     ) { }
 
     locations;
