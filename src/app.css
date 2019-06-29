@@ -38,3 +38,9 @@ Label {
 ListView {
     color: rgb(121, 44, 156);
 }
+
+.locName {
+    font-size: 25px;
+    margin-top: 50px;
+    color: rgb(9, 125, 232);
+}

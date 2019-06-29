@@ -34,7 +34,7 @@ import { getCurrentLocation } from 'nativescript-geolocation';
     </GridLayout-->
     <StackLayout>
     <Image src="~/app/icons/soloLogo.png" height="40" [nsRouterLink]="['/home']" marginTop="10" marginBottom="20"></Image>
-    <Label [text]="location.name" color="rgb(9, 125, 232)"></Label>
+    <Label class="locName" [text]="location.name" textWrap="true"></Label>
         <Label [text]="location.type"></Label>
         <Label [text]="location.address" marginBottom="20"></Label>
     <TextField #messageEl hint="Enter text" row="1" class="input"
@@ -48,9 +48,9 @@ import { getCurrentLocation } from 'nativescript-geolocation';
     borderRadius="25"
     color="white"></TextField>
     <Button col="1" text="Add" (tap)="sendText(messageEl.text)" row="1"></Button>
-    <ListView id="lv" [items]="list" colSpan="2" row="2" class="list-group">
+    <ListView id="lv" [items]="list" colSpan="2" row="2" class="list-group" height="200">
     <ng-template let-item="item">
-    <GridLayout columns="*,*,*" class="list-group-item messages">
+    <GridLayout columns="*" class="list-group-item messages">
     <Label [text]="item.username"></Label>
     <Label [text]="item.message" col="1"></Label>
     </GridLayout>

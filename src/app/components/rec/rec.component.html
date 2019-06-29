@@ -1,21 +1,21 @@
 <StackLayout>
-    <ns-action-bar title="Add Comment"></ns-action-bar>
+    <ns-action-bar title="Tonight's Spot"></ns-action-bar>
     <!-- <ns-action-bar title="Recommendation"></ns-action-bar> -->
     <!-- <ActionBar title="Recommendation"></ActionBar> -->
     <Image src="~/app/icons/soloLogo.png" height="40" [nsRouterLink]="['/home']" marginTop="10" marginBottom="20"></Image>
     <StackLayout>
 
         <Label
-        fontSize="22"
-        marginTop="50"
-        color="rgb(9, 125, 232)"
+        class="locName"
         text="{{location.name}}"
+        textWrap="true"
         >
     </Label>
-    <Label color="white"
-    text="{{location.type}}"></Label>
     <Label     color="white"
     text="{{location.address}}"></Label>
+    <Label color="white"
+    fontSize="18"
+    text="{{location.type}}"></Label>
 </StackLayout>
 
     <Button class="btn" text="Refresh" (tap)="this.ngOnInit()" marginTop="200"></Button>
