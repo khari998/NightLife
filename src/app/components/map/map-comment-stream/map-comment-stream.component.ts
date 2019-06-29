@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { ServerService } from '~/app/services/server.service';
+import { AuthService } from '~/app/services/auth.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class MapCommentStreamComponent implements OnInit {
 
   constructor(
       public ServerService: ServerService,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    public AuthService: AuthService
     ) { }
 
   comments: any = [];
@@ -68,7 +70,7 @@ export class MapCommentStreamComponent implements OnInit {
   }
 
   hotTap(locationId) {
-    this.ServerService.likeLocation(locationId);
+    this.ServerService.likeLocation(locationId, this.AuthService.userObj.id);
     // remove marker, add marker
     this.removeMarker(this.map, locationId);
     // call add Marker to same location as before -- it is saved in the service currentLocation
@@ -108,7 +110,7 @@ export class MapCommentStreamComponent implements OnInit {
   }
 
   coldTap(locationId) {
-      this.ServerService.dislikeLocation(locationId);
+      this.ServerService.dislikeLocation(locationId, this.AuthService.userObj.id);
       this.removeMarker(this.map, locationId);
       let icon;
       this.ServerService.currentLocation.rating_avg--;

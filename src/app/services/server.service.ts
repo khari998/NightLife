@@ -48,11 +48,11 @@ export class ServerService {
         return this.http.get(`${this.url}${this.commentEndpoint}`)
     }
 
-    postComments(locationId, text) {
+    postComments(locationId, text, userId) {
         return this.http.post(`${this.url}${this.commentEndpoint}`, {
             locationId,
             text,
-            // userId: 0,
+            userId
         }).subscribe(data => {
             console.log(data)
         },
@@ -70,8 +70,8 @@ export class ServerService {
 
   // on like button click, need to update in DB likes
 
-  likeLocation(locationId) {
-      return this.http.post(`${this.url}${this.ratingsEndpoint}`, { locationId })
+  likeLocation(locationId, userId) {
+      return this.http.post(`${this.url}${this.ratingsEndpoint}`, { locationId, userId })
         .subscribe(() => {
             console.log('successful post to DB of like rating');
         }, (error) => {
@@ -79,8 +79,8 @@ export class ServerService {
         })
   }
 
-    dislikeLocation(locationId) {
-        return this.http.post(`${this.url}${this.ratingsDownEndpoint}`, { locationId })
+    dislikeLocation(locationId, userId) {
+        return this.http.post(`${this.url}${this.ratingsDownEndpoint}`, { locationId, userId })
             .subscribe(() => {
                 console.log('successful post to DB of dislike rating');
             }, (error) => {
