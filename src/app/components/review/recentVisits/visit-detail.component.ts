@@ -119,7 +119,7 @@ export class VisitDetailComponent implements OnInit {
         let data = {
             message,
             // username: this.currentUser,
-            userId: 0,
+            // userId: 0,
             locationId: this.location.id,
             // timeStamp: +new Date(),
             // location: getCurrentLocation();
