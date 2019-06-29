@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from "@angular/router";
 import { ServerService } from '../../../services/server.service';
 
@@ -13,15 +13,7 @@ import { ServerService } from '../../../services/server.service';
     selector: 'ns-visited-list',
     // templateUrl: './visits.component.html'
     template: `
-<<<<<<< HEAD
     <ListView [items]="locations" class="list-group" (itemTap)="select($event)">
-=======
-    <GridLayout col="0" class="left-column">
-    
-    <!-- The ListView shows on both tablets and phones. On tablets the list occupies the left-hand side
-    of the screen, and one phones the ListView takes up the whole screen. -->
-    <ListView class="list-group" [items]="spots" (itemTap)="select($event)">
->>>>>>> faa3944b3352ca4e0d3328d6e433d55e4eceb8d3
     <ng-template let-item="item">
     <StackLayout class="list-group-item">
         <Label [text]="item.name"></Label>
@@ -52,7 +44,8 @@ import { ServerService } from '../../../services/server.service';
 export class VisitsComponent implements OnInit {
     constructor(
         private router: Router,
-        private serverService: ServerService,
+        public serverService: ServerService,
+        private ref: ChangeDetectorRef,
     ) { }
 
     locations;
@@ -61,10 +54,10 @@ export class VisitsComponent implements OnInit {
 
 
     select(args) {
+        console.log(args);
         this.location = this.locations[args.index];
         this.serverService.currentLocation = this.locations[args.index];
-        console.log(this.serverService.currentLocation);
-
+        this.ref.detectChanges();
         // For phone users we need to navigate to another page to show the detail view.
         this.router.navigate(["/visited"], {
             queryParams: { location: JSON.stringify(this.location) }
