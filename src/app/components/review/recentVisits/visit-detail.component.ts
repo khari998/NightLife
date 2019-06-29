@@ -21,36 +21,6 @@ import { getCurrentLocation } from 'nativescript-geolocation';
     //         <Label style="text-align: center" class="h3; font-italic" textWrap="true" text="works"></Label>
     //             <Label style="text-align: center" class="h4" text="Comments"></Label>
     template: `
-<<<<<<< HEAD
-    <ActionBar [title]="location.name"></ActionBar>
-    <!--StackLayout>
-    <!--Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments.name"></Label-->
-    <!--Label style="text-align: center" class="h3 ; font-italic" textWrap="true" [text]="selected.comments.comment.join(' ')"></Label-->
-    <!--/StackLayout-->
-    <!--TextField class="input" hint="Comments" returnKeyType="next" ngModel #comment="ngModel" required></TextField-->
-    <!--Button colSpan="2" width="50%" height="44" text="Log Out" (tap)="logout()" borderWidth="1"  borderRadius="8" borderColor="black" textAlignment="center" horizontalAlignment="center"></Button-->
-    <!--Button text="Submit" marginTop="20" (tap)="onSubmit(comment.value)"></Button-->
-    <!--/StackLayout-->
-    <GridLayout columns="2*,*" rows = "auto,auto, *" class="page">
-    <StackLayout>
-        <Label [text]="location.name"></Label>
-        <Label [text]="location.type"></Label>
-        <Label [text]="location.address"></Label>
-    </StackLayout>
-                <TextField #messageEl hint="Enter text" row="1"></TextField>
-                <Button col="1" text="Add" (tap)="sendText(messageEl.text)" row="1"></Button>
-                <ListView id="lv" [items]="list" colSpan="2" row="2" class="list-group">
-                    <ng-template let-item="item">
-                        <GridLayout columns="*,*,*" class="list-group-item messages">
-                            <Label [text]="item.username"></Label>
-                            <Label [text]="item.message" col="1"></Label>
-                        </GridLayout>
-                    </ng-template>
-                </ListView>
-                </GridLayout>
-                `
-                // </StackLayout>
-=======
         <StackLayout orientation="vertical" class="m-x-auto">
             <Image [src]="selected.src" width="210"></Image>
             <Label style="text-align: center" class="h2" [text]="selected.city"></Label>
@@ -68,7 +38,6 @@ import { getCurrentLocation } from 'nativescript-geolocation';
                 </StackLayout>
         </StackLayout>
     `
->>>>>>> faa3944b3352ca4e0d3328d6e433d55e4eceb8d3
 })
 
 export class VisitDetailComponent implements OnInit {
