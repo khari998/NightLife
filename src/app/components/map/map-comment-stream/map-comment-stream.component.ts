@@ -56,8 +56,11 @@ export class MapCommentStreamComponent implements OnInit {
       this.ServerService.getComments()
       .subscribe((data: Array<any>) => {
           this.comments = data.filter( comment => {
-            let num = diffHours(newDate, comment.createdAt)
-            return num <= 2;
+              let comDate = comment.createdAt;
+              let oldDateParam: string = comDate.substring(0, comDate.length - 5);
+              let oldDate = new Date(oldDateParam);
+              let num = diffHours(newDate, oldDate);
+              return num <= 2;
           })
           //console.log(this.comments);
       })
