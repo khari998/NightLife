@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../../services/server.service';
+import { AuthService } from '~/app/services/auth.service';
 
 @Component({
   selector: 'ns-rec',
@@ -10,7 +11,9 @@ import { ServerService } from '../../services/server.service';
 })
 export class RecComponent implements OnInit {
 
-  constructor(private ServerService: ServerService) { }
+  constructor(private ServerService: ServerService,
+    public AuthService: AuthService
+    ) { }
 
   locations;
   location;
@@ -21,16 +24,19 @@ export class RecComponent implements OnInit {
 
     this.ServerService.getLocations()
     .subscribe((data) => {
-        console.log(data);
         this.locations = data;
         this.location = this.locations[Math.floor(Math.random() * this.locations.length)]
     }, (error) => {
         console.log(error);
     });
-  }
 
-  // need to make an HTTP request to server to give back data from /locations
-    // this http request is in server service
-  // math.random for all locations for now
+    this.AuthService.getUser(this.AuthService.userEmail)
+      .subscribe((data) =>{
+          console.log('BYABSYBJHBJSHB');
+          console.log(data[0]);
+          this.AuthService.userObj = data[0];
+      })
+
+  }
 
 }
