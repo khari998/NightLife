@@ -5,33 +5,11 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { ServerService } from '../../../services/server.service';
 import { getCurrentLocation } from 'nativescript-geolocation';
 
-// class Visit {
-//     constructor(public id: number, public venue: string, public city: string) {
-//     }
-// }
 
 @Component({
-
-    // selector: 'ns-visited',
-    // <ActionBar [title]="location.name"></ActionBar>
-    //     <StackLayout orientation="vertical" class="m-x-auto">
-    //         <Image [src]="location.src" width="210"></Image>
-    //         <Label style="text-align: center" class="h2" [text]="location.name"></Label>
-    //         <Label style="text-align: center" class="body" [text]="location.type"></Label>
-    //         <Label style="text-align: center" class="h3; font-italic" textWrap="true" text="works"></Label>
-    //             <Label style="text-align: center" class="h4" text="Comments"></Label>
     template: `
     <ActionBar [title]="location.name"></ActionBar>
-    <!--StackLayout>
-    <!--Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments.name"></Label-->
-    <!--Label style="text-align: center" class="h3 ; font-italic" textWrap="true" [text]="selected.comments.comment.join(' ')"></Label-->
-    <!--/StackLayout-->
-    <!--TextField class="input" hint="Comments" returnKeyType="next" ngModel #comment="ngModel" required></TextField-->
-    <!--Button colSpan="2" width="50%" height="44" text="Log Out" (tap)="logout()" borderWidth="1"  borderRadius="8" borderColor="black" textAlignment="center" horizontalAlignment="center"></Button-->
-    <!--Button text="Submit" marginTop="20" (tap)="onSubmit(comment.value)"></Button-->
-    <!--/StackLayout-->
-    <!--GridLayout columns="2*,*" rows = "auto,auto, *" class="page">
-    </GridLayout-->
+    <GridLayout columns="2*" rows = "auto,auto, *" class="page">
     <StackLayout>
     <Image src="~/app/icons/soloLogo.png" height="40" [nsRouterLink]="['/home']" marginTop="10" marginBottom="20"></Image>
     <Label class="locName" [text]="location.name" textWrap="true"></Label>
@@ -60,7 +38,7 @@ import { getCurrentLocation } from 'nativescript-geolocation';
     `,
                 moduleId: module.id,
     providers: [ServerService],
-                // </StackLayout>
+
 })
 
 export class VisitDetailComponent implements OnInit {

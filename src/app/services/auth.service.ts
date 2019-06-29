@@ -14,6 +14,8 @@ import {
 import { serverURL } from "../../../config"
 import { FIREBASE_API_KEY } from "../../../config";
 import { User } from '../../app/components/auth/user.model';
+import { EmailValidator } from "@angular/forms";
+
 
 
 interface AuthResponseData {
@@ -33,8 +35,25 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: RouterExtensions) { }
 
+  userEmail: string;
+  userObj: any;
+
+  saveUserEmail(email) {
+      this.userEmail = email;
+  }
+
+getUser(email) {
+    return this.http.get(`${serverURL}/users`, {
+        params: {
+            email: email,
+            testParam: 'test',
+        }
+    })
+}
+
   signUp(email: string, password: string, name: string) {
-    
+      this.saveUserEmail(email);
+
     return this.http.post<AuthResponseData>(
       `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${FIREBASE_API_KEY}`,
       { email: email, password: password, returnSecureToken: true }
@@ -55,7 +74,9 @@ export class AuthService {
         }
         const endpoint = '/signup';
         return this.http.post(`${serverURL}${endpoint}`, { email, name }).subscribe(
-          (data) => console.log(data),
+          (data) => {
+              console.log(data);
+          },
           (error) => console.error(error)
         )
 
@@ -64,6 +85,7 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
+      this.saveUserEmail(email);
     return this.http.post<AuthResponseData>(
       `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${FIREBASE_API_KEY}`,
       { email: email, password: password, returnSecureToken: true }
@@ -96,13 +118,15 @@ export class AuthService {
       _tokenExpirationDate: string;
     } = JSON.parse(getString('userData'));
 
+      this.saveUserEmail(userData.email);
+
     const loadedUser = new User(
       userData.email,
       userData.id,
       userData._token,
       new Date(userData._tokenExpirationDate)
     );
-    
+
 
     if (loadedUser.isAuth) {
       this._user.next(loadedUser);
@@ -125,7 +149,7 @@ export class AuthService {
 
   autoLogout(expiryDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => this.logout(), expiryDuration);
-    
+
   }
 
   private handleSignIn(
