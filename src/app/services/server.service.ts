@@ -57,7 +57,7 @@ export class ServerService {
         return this.http.post(`${this.url}${this.commentEndpoint}`, {
             locationId,
             text,
-            userId: 0,
+            // userId: 0,
         }).subscribe(data => {
             console.log(data)
         },
