@@ -53,7 +53,6 @@ export class VisitsComponent implements OnInit {
     location = {};
     Math = Math;
 
-
     select(args) {
         console.log(args);
         this.location = this.locations[args.index];
