@@ -30,24 +30,24 @@ import { getCurrentLocation } from 'nativescript-geolocation';
     <!--Button colSpan="2" width="50%" height="44" text="Log Out" (tap)="logout()" borderWidth="1"  borderRadius="8" borderColor="black" textAlignment="center" horizontalAlignment="center"></Button-->
     <!--Button text="Submit" marginTop="20" (tap)="onSubmit(comment.value)"></Button-->
     <!--/StackLayout-->
-    <GridLayout columns="2*,*" rows = "auto,auto, *" class="page">
+    <!--GridLayout columns="2*,*" rows = "auto,auto, *" class="page">
+    </GridLayout-->
     <StackLayout>
         <Label [text]="location.name"></Label>
         <Label [text]="location.type"></Label>
         <Label [text]="location.address"></Label>
+    <TextField #messageEl hint="Enter text" row="1"></TextField>
+    <Button col="1" text="Add" (tap)="sendText(messageEl.text)" row="1"></Button>
+    <ListView id="lv" [items]="list" colSpan="2" row="2" class="list-group">
+    <ng-template let-item="item">
+    <GridLayout columns="*,*,*" class="list-group-item messages">
+    <Label [text]="item.username"></Label>
+    <Label [text]="item.message" col="1"></Label>
+    </GridLayout>
+    </ng-template>
+    </ListView>
     </StackLayout>
-                <TextField #messageEl hint="Enter text" row="1"></TextField>
-                <Button col="1" text="Add" (tap)="sendText(messageEl.text)" row="1"></Button>
-                <ListView id="lv" [items]="list" colSpan="2" row="2" class="list-group">
-                    <ng-template let-item="item">
-                        <GridLayout columns="*,*,*" class="list-group-item messages">
-                            <Label [text]="item.username"></Label>
-                            <Label [text]="item.message" col="1"></Label>
-                        </GridLayout>
-                    </ng-template>
-                </ListView>
-                </GridLayout>
-                `,
+    `,
                 moduleId: module.id,
     providers: [ServerService],
                 // </StackLayout>
