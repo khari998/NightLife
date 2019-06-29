@@ -21,36 +21,49 @@ import { getCurrentLocation } from 'nativescript-geolocation';
     //         <Label style="text-align: center" class="h3; font-italic" textWrap="true" text="works"></Label>
     //             <Label style="text-align: center" class="h4" text="Comments"></Label>
     template: `
-        <StackLayout orientation="vertical" class="m-x-auto">
-            <Image [src]="selected.src" width="210"></Image>
-            <Label style="text-align: center" class="h2" [text]="selected.city"></Label>
-            <Label style="text-align: center" class="body" [text]="selected.address"></Label>
-            <Label style="text-align: center" class="h3; font-italic" textWrap="true" [text]="'- ' + selected.description"></Label>
-            <StackLayout class="hr-light m-10"></StackLayout>
-                <Label style="text-align: center" class="h4" text="Comments"></Label>
-                <StackLayout>
-                <Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments.name"></Label>
-                <Label style="text-align: center" class="h3 ; font-italic" textWrap="true" [text]="selected.comments.comment.join(' ')"></Label>
-                </StackLayout>
-                <StackLayout class="input-field ; m-x-5">
-                <TextField class="input" hint="Comments" returnKeyType="next" ngModel #comment="ngModel" required></TextField>
-                <Button text="Submit" marginTop="20" (tap)="onSubmit(comment.value)"></Button>
-                </StackLayout>
-        </StackLayout>
-    `
+    <ActionBar [title]="location.name"></ActionBar>
+    <!--StackLayout>
+    <!--Label style="text-align: center" class="h1 ; font-bold" [text]="selected.comments.name"></Label-->
+    <!--Label style="text-align: center" class="h3 ; font-italic" textWrap="true" [text]="selected.comments.comment.join(' ')"></Label-->
+    <!--/StackLayout-->
+    <!--TextField class="input" hint="Comments" returnKeyType="next" ngModel #comment="ngModel" required></TextField-->
+    <!--Button colSpan="2" width="50%" height="44" text="Log Out" (tap)="logout()" borderWidth="1"  borderRadius="8" borderColor="black" textAlignment="center" horizontalAlignment="center"></Button-->
+    <!--Button text="Submit" marginTop="20" (tap)="onSubmit(comment.value)"></Button-->
+    <!--/StackLayout-->
+    <GridLayout columns="2*,*" rows = "auto,auto, *" class="page">
+    <StackLayout>
+        <Label [text]="location.name"></Label>
+        <Label [text]="location.type"></Label>
+        <Label [text]="location.address"></Label>
+    </StackLayout>
+                <TextField #messageEl hint="Enter text" row="1"></TextField>
+                <Button col="1" text="Add" (tap)="sendText(messageEl.text)" row="1"></Button>
+                <ListView id="lv" [items]="list" colSpan="2" row="2" class="list-group">
+                    <ng-template let-item="item">
+                        <GridLayout columns="*,*,*" class="list-group-item messages">
+                            <Label [text]="item.username"></Label>
+                            <Label [text]="item.message" col="1"></Label>
+                        </GridLayout>
+                    </ng-template>
+                </ListView>
+                </GridLayout>
+                `,
+                moduleId: module.id,
+    providers: [ServerService],
+                // </StackLayout>
 })
 
 export class VisitDetailComponent implements OnInit {
     list = [];
     currentUser = '';
-    location = {};
+    location: any;
 
     constructor(
-        private router: RouterExtensions,
-        private route: ActivatedRoute,
-        private socketIO: SocketIO,
-        private ngZone: NgZone,
-        private serverService: ServerService,
+        public router: RouterExtensions,
+        public route: ActivatedRoute,
+        public socketIO: SocketIO,
+        public ngZone: NgZone,
+        public serverService: ServerService,
     ) {
         this.route.queryParams.subscribe(params => {
             this.location = JSON.parse(params["location"]);
@@ -58,6 +71,9 @@ export class VisitDetailComponent implements OnInit {
     }
 
     ngOnInit() {
+
+
+
         this.socketIO.on('connect', () => {
             console.log();
         });
@@ -97,28 +113,31 @@ export class VisitDetailComponent implements OnInit {
         this.socketIO.emit('getMessages');
     }
 
+
     sendText(message: string) {
+
         let data = {
             message,
             // username: this.currentUser,
             userId: 0,
-            locationId: this.serverService.currentLocation.id
+            locationId: this.location.id,
             // timeStamp: +new Date(),
             // location: getCurrentLocation();
         };
+
+
+        this.serverService.postComments(data.locationId, data.message)
 
         this.socketIO.emit('new message', data, wasReceived => {
             this.ngZone.run(() => {
                 if (wasReceived) {
                     // console logging if message was sent, and the message that was sent
                     console.log('message sent successfully');
-                    console.log(JSON.stringify(data));
                     this.list.push(data);
                 }
             });
         });
 
-        this.serverService.postComments(data.locationId, data.message)
     }
 
     logout() {

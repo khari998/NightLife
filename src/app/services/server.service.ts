@@ -17,6 +17,8 @@ export class ServerService {
     commentEndpoint: string = '/comments';
     ratingsEndpoint: string = '/ratings'
     ratingsDownEndpoint: string = '/ratingsDown'
+    currentLocation: any = 'Nada';
+
 
 
     smsEndpoint: string = '/sms';
@@ -70,7 +72,6 @@ export class ServerService {
 
   marker: any;
 
-  currentLocation: any;
 
   // on like button click, need to update in DB likes
 

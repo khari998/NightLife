@@ -1,5 +1,6 @@
 <StackLayout>
-    <ns-action-bar title="Recommendation"></ns-action-bar>
+    <ns-action-bar title="Add Comment"></ns-action-bar>
+    <!-- <ns-action-bar title="Recommendation"></ns-action-bar> -->
     <!-- <ActionBar title="Recommendation"></ActionBar> -->
     <Label
     color="white"
@@ -11,7 +12,7 @@ text="{{location.type}}"></Label>
 <Label     color="white"
 text="{{location.address}}"></Label>
 
-<Button class="btn" text="Refresh" [nsRouterLink]="['/rec']"></Button>
+<Button class="btn" text="Refresh" (tap)="this.ngOnInit()"></Button>
 <GridLayout>
 <Navbar row="1"></Navbar>
 
