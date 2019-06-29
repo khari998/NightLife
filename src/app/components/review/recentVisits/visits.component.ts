@@ -13,15 +13,8 @@ import { ServerService } from '../../../services/server.service';
     selector: 'ns-visited-list',
     // templateUrl: './visits.component.html'
     template: `
-<<<<<<< HEAD
-    <GridLayout col="0" class="left-column">
-
-    <!-- The ListView shows on both tablets and phones. On tablets the list occupies the left-hand side
-    of the screen, and one phones the ListView takes up the whole screen. -->
-    <ListView class="list-group" [items]="spots" (itemTap)="select($event)">
-=======
+    <Image src="~/app/icons/soloLogo.png" height="40" marginTop="10" marginBottom="20"></Image>
     <ListView [items]="locations" class="list-group" (itemTap)="select($event)">
->>>>>>> 60232a03880d168d2df93f79b06efc59194764e5
     <ng-template let-item="item">
     <StackLayout class="list-group-item">
         <Label [text]="item.name"></Label>

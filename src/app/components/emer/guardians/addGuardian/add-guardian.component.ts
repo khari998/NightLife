@@ -15,10 +15,9 @@ class Guardian {
     selector: 'ns-add-guardian-list',
     template: `
         <ActionBar title="Add A Guardian"></ActionBar>
-
             <StackLayout class="form">
-                <TextField color="white" class="input" hint="Guardian Name" returnKeyType="next" ngModel #nameCtrl="ngModel"  (textChange)="addGuardianService.nameOnChange(nameCtrl)"  required></TextField>
-                <TextField color="white" class="input" hint="Guardian Phone" keyboardType="phone" returnKeyType="done" ngModel #phoneCtrl="ngModel" required
+                <TextField color="white" class="input" hint="Guardian Name" ngModel #nameCtrl="ngModel"  (textChange)="addGuardianService.nameOnChange(nameCtrl)"  required></TextField>
+                <TextField color="white" class="input" hint="Guardian Phone" keyboardType="phone" ngModel #phoneCtrl="ngModel" required
                 (textChange)="addGuardianService.phoneOnChange(phoneCtrl)"
                 ></TextField>
                 <Label color="white" *ngIf="!nameCtrl.valid && nameCtrl.touched" text="Please Enter Guardian Information"></Label>
