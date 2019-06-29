@@ -30,11 +30,7 @@ export class ServerService {
         return this.http.get(`${this.url}${this.endpoint}`)
     }
 
-    //   public renderCommentStream = false;
 
-    //   changeCommentState() {
-    //       this.renderCommentStream = !this.renderCommentStream;
-    //   }
     activateSOS() {
         console.log(`${this.url}${this.smsEndpoint}`)
 
@@ -47,7 +43,6 @@ export class ServerService {
 
     }
 
-    // function to get comments
 
     getComments() {
         return this.http.get(`${this.url}${this.commentEndpoint}`)
