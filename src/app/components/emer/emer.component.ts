@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddGuardianService } from '../../add-guardian.service';
-import { ServerService } from '~/app/services/server.service';
+import { AuthService } from '~/app/services/auth.service';
+
 @Component({
   selector: 'ns-emer',
   templateUrl: './emer.component.html',
@@ -12,7 +13,7 @@ export class EmerComponent implements OnInit {
 //     {name: 'chris', phone: '504-555-5555'},
 //     {name: 'khari', phone: '504-555-5555'},
 // ]
-  constructor(public addGuardianService: AddGuardianService, public serverService: ServerService) { }
+  constructor(public addGuardianService: AddGuardianService, public authService: AuthService) { }
 
   ngOnInit() {
   }

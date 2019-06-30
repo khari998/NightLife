@@ -31,17 +31,17 @@ export class ServerService {
     }
 
 
-    activateSOS() {
-        console.log(`${this.url}${this.smsEndpoint}`)
+    // activateSOS() {
+    //     console.log(`${this.url}${this.smsEndpoint}`)
 
-        return this.http.post(`${this.url}${this.smsEndpoint}`, this.sosMessage)
-            .subscribe(data => {
-                console.log(data)
-            },
-                error => {
-                    console.log(error) })
+    //     return this.http.post(`${this.url}${this.smsEndpoint}`, this.sosMessage)
+    //         .subscribe(data => {
+    //             console.log(data)
+    //         },
+    //             error => {
+    //                 console.log(error) })
 
-    }
+    // }
 
 
     getComments() {

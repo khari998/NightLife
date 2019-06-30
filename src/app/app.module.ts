@@ -26,7 +26,7 @@ import { GuardianDetailComponent } from "./components/emer/guardians/guardian-de
 import { AddGuardianComponent } from './components/emer/guardians/addGuardian/add-guardian.component'
 import { MapCommentStreamComponent } from './components/map/map-comment-stream/map-comment-stream.component';
 
-const server = 'https://16ee98ee.ngrok.io';
+const server = 'https://f4fd0fde.ngrok.io';
 // import { SocketIO } from "nativescript-socketio";
 
 // import { TextFieldBindingComponent } from './components/textfield.component';
