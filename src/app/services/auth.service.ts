@@ -37,6 +37,21 @@ export class AuthService {
 
   userEmail: string;
   userObj: any;
+  smsEndpoint: string = `/sms`;
+  sosMessage: string = `*Current User* has indicated they are experiencing an emergency. Please contact them and / or the authorities`;
+
+  activateSOS() {
+    // console.log(`${serverURL}${this.smsEndpoint}`)
+    console.log(this.userObj.id, `*****************`);
+    // return this.http.post(`${serverURL}${this.smsEndpoint}`, this.sosMessage)
+    //     .subscribe(data => {
+    //         console.log(data)
+    //     },
+    //         error => {
+    //             console.log(error) })
+
+}
+
 
   saveUserEmail(email) {
       this.userEmail = email;

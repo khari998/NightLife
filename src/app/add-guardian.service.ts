@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { HttpClient } from '@angular/common/http';
 import { serverURL } from '../../config'
+import { AuthService } from '../app/services/auth.service';
 // import htttp client from angular
 
 //inject http into constructor
@@ -30,25 +31,26 @@ currentGuardians = [
     {name: 'Khari', phone: '504-555-5555'},
 ]
 
-  constructor(private extension: RouterExtensions, public http: HttpClient) { }
+  constructor(private extension: RouterExtensions, public http: HttpClient, public authService: AuthService) { }
 
     nameOnChange(input) {
-        console.log(input)
+        // console.log(input)
         this.newGuardianName = input.value;
     }
 
     phoneOnChange(input) {
-        console.log(input)
+        // console.log(input)
         this.newGuardianPhone = input.value;
 
     }
 
     addContact() {
         console.log(this.newGuardianName, this.newGuardianPhone)
+        console.log(this.authService.userObj.id);
         this.currentGuardians.push({ name: this.newGuardianName, phone: this.newGuardianPhone })
         this.extension.backToPreviousPage();
 
-        return this.http.post(`${this.url}${this.addEnd}`, { name: this.newGuardianName, phone: this.newGuardianPhone })
+        return this.http.post(`${this.url}${this.addEnd}`, { name: this.newGuardianName, phone: this.newGuardianPhone, userId: this.authService.userObj.id })
         .subscribe( data => {
             console.log(data)
         },
